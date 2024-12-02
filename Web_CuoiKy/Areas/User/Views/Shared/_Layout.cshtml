@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    @*@Styles.Render("~/Content/css")*@
+    @*@Scripts.Render("~/bundles/modernizr")*@
+</head>
+<body>
+    <div class="">
+        <header class="bg-white px-[7%]">
+            <div class="flex py-4 items-center justify-between">
+                <div>
+                    <img src="https://bizweb.dktcdn.net/100/505/645/themes/956063/assets/logo.png?1728351987196" alt="">
+                </div>
+                <ul class="flex gap-3 items-center">
+                    <li class="text-base p-3 py-2 bg-blue-400 text-white rounded"><a href="@Url.Action("Index", "Home", new { area = "User" })">Trang Chủ</a></li>
+                    <li class="text-base p-3 py-2">Tour du lịch</li>
+                    <li class="text-base p-3 py-2">Tin tức</li>
+                    <li class="text-base p-3 py-2"><a href="@Url.Action("Contact", "Home", new { area = "User" })">Liên hệ</a></li>
+                </ul>
+                <div class="flex gap-3 items-center">
+                    <div class="text-lg px-2"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <div class="text-lg px-2 relative group cursor-pointer">
+                        <i class="fa-regular fa-user"></i>
+                        <div class="absolute right-0 bg-white border border-gray-300 rounded shadow-lg hidden group-hover:block">
+                            <ul class="p-2 w-[10rem]">
+                                <li class="li_diem_di hover:bg-blue-100 px-2 py-1 text-sm cursor-pointer"><a href="@Url.Action("LogIn", "Home", new { area = "User" })">Đăng nhập</a></li>
+                                <li class="li_diem_di hover:bg-blue-100 px-2 py-1 text-sm cursor-pointer"><a href="@Url.Action("SignIn", "Home", new { area = "User" })">Đăng ký</a></li>
+                                <li class="li_diem_di hover:bg-blue-100 px-2 py-1 text-sm cursor-pointer"><a href="@Url.Action("Cart", "Home", new { area = "User" })">Giỏ hàng</a></li>
+                                <li class="li_diem_di hover:bg-blue-100 px-2 py-1 text-sm cursor-pointer"><a href="@Url.Action("Favourite", "Home", new { area = "User" })">Tour yêu thích</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="text-lg px-2"><a href="@Url.Action("Cart", "Home", new { area = "User" })"><i class="fa-solid fa-cart-shopping"></i></a></div>
+                    <div class="text-lg px-2 flex items-center gap-2">
+                        <i class="fa-solid fa-headphones"></i>
+                        <div class="text-base">
+                            <span>Hotline</span>
+                            <p class="text-blue-600">1900 6750</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        @RenderBody()
+        <div class="mid-footer px-[7%]">
+            <div class="container">
+                <div class="flex justify-between">
+                    <div>
+                        <h4 class="text-xl font-medium mb-2">
+                            Thông tin liên hệ
+                        </h4>
+                        <div class="contact-footer text-sm flex flex-col gap-3">
+                            <div class="item">
+                                <strong>Địa chỉ</strong> <br />
+                                Tòa nhà Ladeco, 266 Đội Cấn, Ba Đình, Hà Nội
+                            </div>
+                            <div class="item">
+                                <strong>Email</strong> <br />
+                                <a href="mailto:support@sapo.vn" title="support@sapo.vn">support@sapo.vn</a>
+                            </div>
+                            <div class="item">
+                                <strong>Hotline</strong> <br />
+                                <a class="fone" href="tel:19006750" title="19006750">1900 6750</a>
+                            </div>
+                            <div class="item">
+                                <strong>Thời gian hỗ trợ</strong> <br />
+                                08:30 - 21:30 các ngày trong tuần
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-medium mb-2">
+                            Hướng dẫn
+                            <span class="Collapsible__Plus"></span>
+                        </h4>
+                        <div class="flex flex-col gap-3">
+
+                            <a href="/" title="Trang chủ">Trang chủ</a>
+
+                            <a href="/gioi-thieu" title="Giới thiệu">Giới thiệu</a>
+
+                            <a href="/collections/all" title="Tour du lịch">Tour du lịch</a>
+
+                            <a href="/tin-tuc" title="Tin tức">Tin tức</a>
+
+                            <a href="/faq" title="Faqs">Faqs</a>
+
+                            <a href="/lien-he" title="Liên hệ">Liên hệ</a>
+
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-medium mb-2">
+                            Thông tin cần biết
+                            <span class="Collapsible__Plus"></span>
+                        </h4>
+                        <div class="flex flex-col gap-3">
+
+                            <a href="/gioi-thieu" title="Về chúng tôi">Về chúng tôi</a>
+
+                            <a href="/faq" title="Câu hỏi thường gặp">Câu hỏi thường gặp</a>
+
+                            <a href="/dieu-kien-dieu-khoan" title="Điều kiện, điều khoản">Điều kiện, điều khoản</a>
+
+                            <a href="/quy-che-hoat-dong" title="Quy chế hoạt động">Quy chế hoạt động</a>
+
+                            <a href="/lien-he" title="Liên hệ">Liên hệ</a>
+
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <div class="module-social">
+                            <h4 class="text-xl font-medium mb-2">
+                                Kết nối
+                                <span class="Collapsible__Plus"></span>
+                            </h4>
+                            <div>
+                                <div class="social-footer flex gap-3">
+                                    <a href="#" class="social-button" title="Facebook" target="_blank" rel="nofollow">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-[2rem] h-[2rem]" fill="none">
+                                            <path d="M12.001 2.00195C6.47901 2.00195 2.00201 6.47895 2.00201 12.001C2.00201 16.991 5.65801 21.127 10.439 21.88V14.892H7.89901V12.001H10.439V9.79795C10.439 7.28995 11.932 5.90695 14.215 5.90695C15.309 5.90695 16.455 6.10195 16.455 6.10195V8.56095H15.191C13.951 8.56095 13.563 9.33295 13.563 10.124V11.999H16.334L15.891 14.89H13.563V21.878C18.344 21.129 22 16.992 22 12.001C22 6.47895 17.523 2.00195 12.001 2.00195Z" fill="#212633"></path>
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="social-button" title="Youtube" target="_blank" rel="nofollow">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-[2rem] h-[2rem]" fill="none">
+                                            <path d="M21.593 7.20301C21.363 6.34501 20.688 5.66801 19.831 5.43701C18.265 5.00701 12 5.00001 12 5.00001C12 5.00001 5.73599 4.99301 4.16899 5.40401C3.32899 5.63301 2.63499 6.32501 2.40299 7.18201C1.98999 8.74801 1.98599 11.996 1.98599 11.996C1.98599 11.996 1.98199 15.26 2.39199 16.81C2.62199 17.667 3.29699 18.344 4.15499 18.575C5.73699 19.005 11.985 19.012 11.985 19.012C11.985 19.012 18.25 19.019 19.816 18.609C20.672 18.379 21.35 17.703 21.583 16.846C21.997 15.281 22 12.034 22 12.034C22 12.034 22.02 8.76901 21.593 7.20301ZM9.99599 15.005L10.001 9.00501L15.208 12.01L9.99599 15.005Z" fill="#212633"></path>
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="social-button" title="Twitter" target="_blank" rel="nofollow">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-[2rem] h-[2rem]" fill="none">
+                                            <path d="M22.4592 6.01238C21.6896 6.35373 20.8624 6.58442 19.9944 6.68815C20.8803 6.15701 21.5609 5.31598 21.8813 4.31378C21.052 4.80564 20.1336 5.16278 19.156 5.3552C18.3732 4.52112 17.2579 4 16.0235 4C13.6534 4 11.7317 5.92147 11.7317 8.29155C11.7317 8.6279 11.7697 8.95546 11.8429 9.2696C8.27609 9.0906 5.11375 7.38203 2.99709 4.78551C2.62765 5.41935 2.41601 6.15656 2.41601 6.94309C2.41601 8.43204 3.17364 9.74563 4.32523 10.5153C3.62179 10.4929 2.95996 10.2999 2.38139 9.97846C2.38098 9.99639 2.38098 10.0143 2.38098 10.0324C2.38098 12.1118 3.86033 13.8463 5.82359 14.2406C5.46349 14.3387 5.08434 14.3912 4.69294 14.3912C4.4164 14.3912 4.14755 14.3642 3.88546 14.3142C4.43161 16.0191 6.01653 17.26 7.89454 17.2945C6.42576 18.4457 4.57527 19.1318 2.56453 19.1318C2.21812 19.1318 1.87651 19.1114 1.54077 19.0717C3.44003 20.2894 5.69591 21 8.1195 21C16.0134 21 20.3302 14.4605 20.3302 8.78918C20.3302 8.60314 20.326 8.41805 20.3177 8.23395C21.1563 7.62886 21.8839 6.87302 22.4592 6.01238Z" fill="#212633"></path>
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="social-button" title="Instagram" target="_blank" rel="nofollow">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-[2rem] h-[2rem]" fill="#212633">
+                                            <path d="M11.999 7.377C9.44501 7.377 7.37601 9.447 7.37601 12C7.37601 14.554 9.44501 16.624 11.999 16.624C14.551 16.624 16.622 14.554 16.622 12C16.622 9.447 14.551 7.377 11.999 7.377ZM11.999 15.004C10.34 15.004 8.99501 13.659 8.99501 12.001C8.99501 10.342 10.34 8.998 11.999 8.998C13.658 8.998 15.001 10.342 15.001 12.001C15.001 13.659 13.658 15.004 11.999 15.004Z" fill="#212633"></path>
+                                            <path d="M16.806 8.285C17.4014 8.285 17.884 7.80237 17.884 7.207C17.884 6.61164 17.4014 6.129 16.806 6.129C16.2107 6.129 15.728 6.61164 15.728 7.207C15.728 7.80237 16.2107 8.285 16.806 8.285Z" fill="#212633"></path>
+                                            <path d="M20.533 6.111C20.064 4.902 19.109 3.946 17.9 3.479C17.201 3.216 16.462 3.075 15.714 3.059C14.751 3.017 14.446 3.005 12.004 3.005C9.56201 3.005 9.24901 3.005 8.29401 3.059C7.54801 3.074 6.80901 3.215 6.11001 3.479C4.90001 3.946 3.94501 4.902 3.47701 6.111C3.21401 6.811 3.07301 7.549 3.05801 8.297C3.01501 9.259 3.00201 9.564 3.00201 12.007C3.00201 14.449 3.00201 14.76 3.05801 15.717C3.07301 16.465 3.21401 17.203 3.47701 17.904C3.94601 19.112 4.90101 20.068 6.11101 20.536C6.80701 20.808 7.54601 20.962 8.29601 20.986C9.25901 21.028 9.56401 21.041 12.006 21.041C14.448 21.041 14.761 21.041 15.716 20.986C16.463 20.971 17.202 20.829 17.902 20.567C19.111 20.098 20.066 19.143 20.535 17.934C20.798 17.234 20.939 16.496 20.954 15.748C20.997 14.786 21.01 14.481 21.01 12.038C21.01 9.59501 21.01 9.285 20.954 8.328C20.941 7.57 20.801 6.819 20.533 6.111ZM19.315 15.643C19.308 16.219 19.204 16.79 19.004 17.331C18.699 18.118 18.078 18.74 17.292 19.042C16.757 19.241 16.193 19.345 15.622 19.353C14.672 19.397 14.404 19.408 11.968 19.408C9.53001 19.408 9.28101 19.408 8.31301 19.353C7.74401 19.346 7.17801 19.241 6.64401 19.042C5.85501 18.741 5.23001 18.119 4.92501 17.331C4.72901 16.797 4.62301 16.232 4.61401 15.662C4.57101 14.712 4.56101 14.444 4.56101 12.008C4.56101 9.571 4.56101 9.322 4.61401 8.353C4.62101 7.777 4.72501 7.207 4.92501 6.666C5.23001 5.877 5.85501 5.256 6.64401 4.954C7.17801 4.756 7.74401 4.651 8.31301 4.643C9.26401 4.6 9.53101 4.588 11.968 4.588C14.405 4.588 14.655 4.588 15.622 4.643C16.193 4.65 16.757 4.755 17.292 4.954C18.078 5.257 18.699 5.879 19.004 6.666C19.2 7.2 19.306 7.765 19.315 8.335C19.358 9.28601 19.369 9.553 19.369 11.99C19.369 14.426 19.369 14.688 19.326 15.644H19.315V15.643Z" fill="#212633"></path>
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="social-button" title="Google" target="_blank" rel="nofollow">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-[2rem] h-[2rem]" fill="none">
+                                            <path d="M20.283 10.356H11.956V13.807H16.748C16.302 16 14.435 17.26 11.956 17.26C9.033 17.26 6.677 14.904 6.677 11.98C6.677 9.057 9.033 6.701 11.956 6.701C13.215 6.701 14.353 7.148 15.246 7.879L17.846 5.28C16.262 3.899 14.231 3.047 11.956 3.047C7.002 3.047 3.022 7.026 3.022 11.981C3.022 16.936 7.001 20.915 11.956 20.915C16.423 20.915 20.485 17.666 20.485 11.981C20.485 11.453 20.404 10.884 20.283 10.356Z" fill="#212633"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="module-application">
+                            <h4 class="text-xl font-medium mb-2">
+                                Tải ứng dụng ND Travel
+                                <span class="Collapsible__Plus"></span>
+                            </h4>
+                            <div class="flex gap-3">
+                                <img src="//bizweb.dktcdn.net/100/505/645/themes/956063/assets/img-app-store.png?1728351987196" alt="ND Travel">
+                                <img src="//bizweb.dktcdn.net/100/505/645/themes/956063/assets/img-google-play.png?1728351987196" alt="ND Travel">
+                            </div>
+                        </div>
+                        <div class="module-payment">
+                            <h4 class="text-xl font-medium mb-2">
+                                Phương thức thanh toán
+                                <span class="Collapsible__Plus"></span>
+                            </h4>
+                            <div class="flex gap-3">
+                                <div class="item">
+                                    <img class="lazyload loaded" src="//bizweb.dktcdn.net/100/505/645/themes/956063/assets/icon_payment_1.png?1728351987196" data-src="//bizweb.dktcdn.net/100/505/645/themes/956063/assets/icon_payment_1.png?1728351987196" alt="ND Travel" data-was-processed="true">
+                                </div>
+                                <div class="item">
+                                    <img class="lazyload loaded" src="//bizweb.dktcdn.net/100/505/645/themes/956063/assets/icon_payment_2.png?1728351987196" data-src="//bizweb.dktcdn.net/100/505/645/themes/956063/assets/icon_payment_2.png?1728351987196" alt="ND Travel" data-was-processed="true">
+                                </div>
+                                <div class="item">
+                                    <img class="lazyload loaded" src="//bizweb.dktcdn.net/100/505/645/themes/956063/assets/icon_payment_3.png?1728351987196" data-src="//bizweb.dktcdn.net/100/505/645/themes/956063/assets/icon_payment_3.png?1728351987196" alt="ND Travel" data-was-processed="true">
+                                </div>
+                                <div class="item">
+                                    <img class="lazyload loaded" src="//bizweb.dktcdn.net/100/505/645/themes/956063/assets/icon_payment_4.png?1728351987196" data-src="//bizweb.dktcdn.net/100/505/645/themes/956063/assets/icon_payment_4.png?1728351987196" alt="ND Travel" data-was-processed="true">
+                                </div>
+                                <div class="item">
+                                    <img class="lazyload loaded" src="//bizweb.dktcdn.net/100/505/645/themes/956063/assets/icon_payment_5.png?1728351987196" data-src="//bizweb.dktcdn.net/100/505/645/themes/956063/assets/icon_payment_5.png?1728351987196" alt="ND Travel" data-was-processed="true">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t py-5 mt-5">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <div>
+                            Sự thật luôn chỉ có 1
+                            <span class="d-sm-inline-block d-none"> | </span>
+                            <span class="opacity1">
+                                Ta là Kudo Shinichi
+                                <a href="https://www.sapo.vn/?utm_campaign=cpn:site_khach_hang-plm:footer&amp;utm_source=site_khach_hang&amp;utm_medium=referral&amp;utm_content=fm:text_link-km:-sz:&amp;utm_term=&amp;campaign=site_khach_hang" rel="noopener" title="Sapo" target="_blank">Kudo shop</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <a href="/" class="logo" title="Logo">
+                                <img src="//bizweb.dktcdn.net/100/505/645/themes/956063/assets/logo.png?1728351987196" alt="ND Travel">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*@Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
+            @RenderSection("scripts", required: false)*@
+</body>
+</html>

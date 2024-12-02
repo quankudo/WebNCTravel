@@ -1,0 +1,143 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<div class="w-full overflow-hidden rounded-lg shadow-xs flex gap-5" style="width: 1162px;">
+    <div>
+        <h3 class="text-2xl text-black my-4">Danh sách danh mục</h3>
+        <table class="w-full whitespace-no-wrap rounded overflow-hidden">
+            <thead>
+                <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                    <th class="px-4 py-3">Mã danh mục</th>
+                    <th class="px-4 py-3">Tên danh mục</th>
+                    <th class="px-4 py-3">Mô tả</th>
+                    <th class="px-4 py-3">Chức năng</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                <tr class="text-gray-700 dark:text-gray-400">
+                    <td class="px-4 py-3">DM001</td>
+                    <td class="px-4 py-3 text-sm w-[10rem]">Tham quan danh lam thắng cảnh</td>
+                    <td class="px-4 py-3 text-sm w-[20rem]">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dolores similique enim atque quibusdam dolorem doloribus quaerat quas.
+                        Ducimus officia quidem ea vero nihil dolorem sed voluptatum.
+                    </td>
+                    <td class="px-4 py-3 flex gap-3">
+                        <button id="deleteButton" class="px-4 py-1 bg-red-500 text-white rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
+                            Xoá
+                        </button>
+                        <button class="px-4 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                            Cập nhật
+                        </button>
+                    </td>
+                </tr>
+                <tr class="text-gray-700 dark:text-gray-400">
+                    <td class="px-4 py-3">DM002</td>
+                    <td class="px-4 py-3 text-sm w-[10rem]">Tham quan danh lam thắng cảnh</td>
+                    <td class="px-4 py-3 text-sm w-[20rem]">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dolores similique enim atque quibusdam dolorem doloribus quaerat quas.
+                        Ducimus officia quidem ea vero nihil dolorem sed voluptatum.
+                    </td>
+                    <td class="px-4 py-3 flex gap-3">
+                        <button id="deleteButton" class="px-4 py-1 bg-red-500 text-white rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
+                            Xoá
+                        </button>
+                        <button class="px-4 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                            Cập nhật
+                        </button>
+                    </td>
+                </tr>
+                <tr class="text-gray-700 dark:text-gray-400">
+                    <td class="px-4 py-3">DM003</td>
+                    <td class="px-4 py-3 text-sm w-[10rem]">Tham quan danh lam thắng cảnh</td>
+                    <td class="px-4 py-3 text-sm w-[20rem]">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dolores similique enim atque quibusdam dolorem doloribus quaerat quas.
+                        Ducimus officia quidem ea vero nihil dolorem sed voluptatum.
+                    </td>
+                    <td class="px-4 py-3 flex gap-3">
+                        <button class="delete-button px-4 py-1 bg-red-500 text-white rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50" data-id="DM003" data-name="Tham quan danh lam thắng cảnh">
+                            Xoá
+                        </button>
+                        <button class="px-4 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                            Cập nhật
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg flex-1 rounded-md border border-gray-300">
+        <h2 class="text-2xl font-semibold text-center mb-6">Thêm Danh Mục</h2>
+
+        <form action="#" method="POST">
+            <!-- Tiêu đề -->
+            <div class="mb-4">
+                <label for="title" class="block text-sm font-medium text-gray-700">Tiêu đề</label>
+                <input type="text" id="title" name="title" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+
+            <!-- Mô tả -->
+            <div class="mb-4">
+                <label for="description" class="block text-sm font-medium text-gray-700">Mô tả</label>
+                <textarea id="description" name="description" rows="4" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+            </div>
+
+            <!-- Nút gửi -->
+            <div class="flex justify-end gap-5">
+                <button type="button" class="px-6 py-2 bg-gray-400 text-white rounded-lg hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
+                    Hủy
+                </button>
+                <button type="submit" class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                    Thêm
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>
+<div id="confirmModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-1/3">
+        <h2 class="text-xl text-black"><i class="fa-solid fa-circle-info text-blue-500"></i> Thông báo</h2>
+        <p class="text-black font-light">Bạn có chắc chắn muốn xóa khách hàng có thông tin: <strong id="info"></strong>?</p>
+        <div class="flex justify-end mt-4">
+            <button id="cancelButton" class="px-4 py-2 bg-gray-300 text-black rounded-lg hover:bg-gray-500 mr-2">
+                Hủy
+            </button>
+            <button id="confirmButton" class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-700">
+                Xoá
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+      const deleteButtons = document.querySelectorAll('.delete-button');
+      const confirmModal = document.getElementById('confirmModal');
+      const tourNameSpan = document.getElementById('tourName');
+      const cancelButton = document.getElementById('cancelButton');
+      const confirmButton = document.getElementById('confirmButton');
+      const info = document.getElementById('info');
+      // Lắng nghe sự kiện click cho từng nút
+      deleteButtons.forEach(button => {
+          button.addEventListener('click', () => {
+              // Lấy giá trị data-id
+              const customerId = button.getAttribute('data-id');
+              const customerName = button.getAttribute('data-name');
+
+              confirmModal.classList.remove('hidden');
+              info.innerText = `${customerId} ${customerName}`
+          });
+      });
+      cancelButton.addEventListener('click', function () {
+        confirmModal.classList.add('hidden');
+      });
+
+      // Xóa hàng khi nhấn "Xoá" trong modal
+      confirmButton.addEventListener('click', function () {
+        confirmModal.classList.add('hidden');
+      });
+
+</script>

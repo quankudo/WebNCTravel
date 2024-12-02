@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "AddPromotion";
+}
+
+<div class="w-full overflow-hidden rounded-lg shadow-xs" style="width: 1162px;">
+    <div class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
+        <h2 class="text-2xl font-semibold mb-3">Thêm mã giảm giá</h2>
+        <hr class="w-full h-[3px] bg-blue-500 mb-6" />
+        <form action="#" method="POST">
+            <!-- Tiêu đề -->
+            <div class="mb-4">
+                <label for="title" class="block text-sm font-medium text-gray-700">Tiêu đề</label>
+                <input type="text" id="title" name="title" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+
+            <div class="flex gap-5">
+                <!-- Thời gian bắt đầu -->
+                <div class="mb-4">
+                    <label for="startTime" class="block text-sm font-medium text-gray-700">Thời gian bắt đầu</label>
+                    <input type="datetime-local" id="startTime" name="startTime" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+
+                <!-- Thời gian kết thúc -->
+                <div class="mb-4">
+                    <label for="endTime" class="block text-sm font-medium text-gray-700">Thời gian kết thúc</label>
+                    <input type="datetime-local" id="endTime" name="endTime" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+            </div>
+
+            <div class="flex gap-5">
+                <div class="mb-4 w-[15rem]">
+                    <label for="discountType" class="block text-sm font-medium text-gray-700">Loại giảm giá</label>
+                    <select id="discountType" name="discountType" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <option value="du-lich">-- Chọn loại giảm giá --</option>
+                        <option value="du-lich">Giảm giá theo phần trăm</option>
+                        <option value="kham-pha">Giảm giá theo tiền mặt</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label for="discountValue" class="block text-sm font-medium text-gray-700">Giá trị mã giảm</label>
+                    <input type="number" id="discountValue" name="discountValue" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+            </div>
+
+
+            <!-- Mô tả -->
+            <div class="mb-4">
+                <label for="description" class="block text-sm font-medium text-gray-700">Mô tả</label>
+                <textarea id="description" name="description" rows="4" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+            </div>
+
+            <!-- Nút gửi -->
+            <div class="flex justify-end gap-5">
+                <button type="button" class="px-6 py-2 bg-gray-400 text-white rounded-lg hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
+                    Hủy
+                </button>
+                <button type="submit" class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                    Thêm
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+

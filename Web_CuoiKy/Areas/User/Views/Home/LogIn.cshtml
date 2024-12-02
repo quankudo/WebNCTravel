@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "LogIn";
+}
+
+<div class="w-[100%] h-[10rem] bg-sky-500 px-[7%] flex items-center">
+    <p class="text-white">
+        <a href="Home.html">Trang chủ</a> >
+        <strong>Đăng nhập tài khoản</strong>
+    </p>
+</div>
+
+<section class="flex justify-center items-center" style="width: 100vw; height: 70vh;">
+    <div class="flex flex-col gap-3 p-5 border border-gray-300 rounded-lg w-[25rem]">
+        <div class="flex flex-col gap-2 items-center">
+            <h3 class="text-lg">ĐĂNG NHẬP</h3>
+            <P class="text-sm">Nếu bạn chưa có tài khoản, <a href="" class="text-blue-600">đăng ký tại đây</a></P>
+        </div>
+        <form action="" class="flex flex-col gap-3 text-center">
+            <input type="text" name="username" id="username" autocomplete="username"
+                   class="block flex-1 border border-gray-300 px-3 py-2 rounded"
+                   placeholder="Email">
+            <input type="text" name="username" id="username" autocomplete="username"
+                   class="block flex-1 border border-gray-300 px-3 py-2 rounded"
+                   placeholder="Mật khẩu">
+            <button class="bg-sky-500 text-white px-4 border py-2 rounded hover:bg-white hover:border-sky-500 hover:text-sky-500">Đăng nhập</button>
+            <span class="text-[14px]">Quên mật khẩu</span>
+            <p>Hoặc đăng nhập bằng</p>
+            <div class="flex gap-3 justify-center">
+                <div class="bg-blue-700 text-white px-4 py-2 flex gap-3 items-center rounded">
+                    <i class="fa-brands fa-facebook-f text-white"></i> Facebook
+                </div>
+                <div class="bg-red-700 text-white px-4 py-2 flex gap-3 items-center rounded">
+                    <i class="fa-brands fa-google"></i>
+                    Google
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

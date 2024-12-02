@@ -1,0 +1,263 @@
+﻿
+@{
+    ViewBag.Title = "AddTour";
+}
+
+<div class="w-full overflow-hidden rounded-lg shadow-xs text-black" style="width: 1162px;">
+    <div class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
+        <h2 class="text-2xl font-semibold mb-3">Thêm Tour Mới</h2>
+        <hr class="w-full h-[3px] bg-blue-500 mb-6" />
+        <form action="#" method="POST">
+            <!-- Tiêu đề -->
+            <div class="mb-4">
+                <label for="title" class="block text-sm font-medium text-gray-700">Tiêu đề</label>
+                <input type="text" id="title" name="title" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+
+            <div class="flex gap-5">
+                <!-- Thời gian bắt đầu -->
+                <div class="mb-4">
+                    <label for="startTime" class="block text-sm font-medium text-gray-700">Thời gian bắt đầu</label>
+                    <input type="datetime-local" id="startTime" name="startTime" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+
+                <!-- Thời gian kết thúc -->
+                <div class="mb-4">
+                    <label for="endTime" class="block text-sm font-medium text-gray-700">Thời gian kết thúc</label>
+                    <input type="datetime-local" id="endTime" name="endTime" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <!-- Số ngày -->
+                <div class="mb-4 flex gap-3">
+                    <div>
+                        <label for="morning" class="block text-sm font-medium text-gray-700">Số ngày</label>
+                        <input type="number" id="morning" name="morning" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="evening" class="block text-sm font-medium text-gray-700">Số đêm</label>
+                        <input type="number" id="evening" name="evening" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-5">
+                <!-- Số lượng vé -->
+                <div class="mb-4">
+                    <label for="ticketQuantity" class="block text-sm font-medium text-gray-700">Số lượng vé</label>
+                    <input type="number" id="ticketQuantity" name="ticketQuantity" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <!-- Giá cho trẻ em -->
+                <div class="mb-4">
+                    <label for="priceChild" class="block text-sm font-medium text-gray-700">Giá cho trẻ em</label>
+                    <input type="number" id="priceChild" name="priceChild" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+
+                <!-- Giá cho người lớn -->
+                <div class="mb-4">
+                    <label for="priceAdult" class="block text-sm font-medium text-gray-700">Giá cho người lớn</label>
+                    <input type="number" id="priceAdult" name="priceAdult" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+            </div>
+
+
+
+
+            <div class="flex gap-5">
+                <div class="mb-4 w-[15rem]">
+                    <label for="destination" class="block text-sm font-medium text-gray-700">Điểm đến</label>
+                    <select id="destination" name="destination" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <option value="">-- Chọn điểm đến --</option>
+                        <option value="Phố cổ Hội An">Phố cổ Hội An</option>
+                        <option value="Phố cổ Hà Nội">Phố cổ Hà Nội</option>
+                        <option value="Chùa Bái Đính">Chùa Bái Đính</option>
+                    </select>
+                </div>
+
+                <!-- Danh mục -->
+                <div class="mb-4 w-[15rem]">
+                    <label for="category" class="block text-sm font-medium text-gray-700">Danh mục</label>
+                    <select id="category" name="category" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <option value="du-lich">-- Chọn danh mục --</option>
+                        <option value="du-lich">Du lịch</option>
+                        <option value="kham-pha">Khám phá</option>
+                        <option value="khac">Khác</option>
+                    </select>
+                </div>
+
+                <!-- Mã giảm giá -->
+                <div class="mb-4 w-[15rem]">
+                    <label for="discountCode" class="block text-sm font-medium text-gray-700">Mã giảm giá</label>
+                    <select id="discountCode" name="discountCode" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <option value="du-lich">-- Chọn mã giảm giá --</option>
+                        <option value="du-lich">Giảm 20%</option>
+                        <option value="kham-pha">Giảm 40%</option>
+                        <option value="khac">Giảm 50%</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <ul id="listDestination" class="flex gap-3">
+                </ul>
+            </div>
+
+            <div class="mb-4">
+                <label for="listImage" class="block text-sm font-medium text-gray-700">Hình ảnh</label>
+                <input type="file" id="listImage" name="listImage" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required multiple>
+            </div>
+
+            <div id="list_images" class="mt-4 flex flex-wrap gap-2"></div>
+
+            <!-- Mô tả -->
+            <div class="mb-4">
+                <label for="description" class="block text-sm font-medium text-gray-700">Mô tả</label>
+                <textarea id="description" name="description" rows="4" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+            </div>
+
+            <p class="block text-lg mb-4 font-medium text-gray-700">Thêm lịch trình</p>
+            <div class="mb-4 flex gap-5">
+                <div>
+                    <div class="mb-4">
+                        <label for="titleSchedule" class="block text-sm font-medium text-gray-700">Nội dung chính</label>
+                        <input type="text" id="titleSchedule" name="titleSchedule" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="description" class="block text-sm font-medium text-gray-700">Mô tả</label>
+                        <textarea id="descSchedule" name="description" rows="3" class="mt-1 block w-[20rem] px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                    </div>
+                    <button id="btnAddSchedule" type="button" class="px-6 py-1 bg-blue-400 text-white rounded hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                        Thêm
+                    </button>
+                </div>
+                <div class="flex-1">
+                    <p class="text-sm font-medium text-gray-700 mb-2">Danh sách lịch trình</p>
+                    <ul id="listSchedule">
+                        <!-- list li render by js -->
+
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Nút gửi -->
+            <div class="flex justify-end gap-5">
+                <button type="button" class="px-6 py-2 bg-gray-400 text-white rounded hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
+                    Hủy
+                </button>
+                <button type="submit" class="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                    Thêm Tour
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+      const listSchedule = document.getElementById('listSchedule');
+      const titleSchedule = document.getElementById('titleSchedule');
+      const descSchedule = document.getElementById('descSchedule');
+      const btnAddSchedule = document.getElementById('btnAddSchedule');
+      const btnDeleteSchedule = document.querySelectorAll('.close-schedule');
+
+      let Schedules = [];
+      btnAddSchedule.addEventListener('click', function() {
+        Schedules.push({
+          title: titleSchedule.value,
+          desc: descSchedule.value
+        });
+
+        let html = '';
+        Schedules.forEach((item, index) => {
+          html += `
+            <li class="border-t border-gray-500 p-2 flex items-center justify-between gap-3">
+              <p><i class="fa-solid fa-check text-blue-500 mr-5"></i>${item.title}</p>
+              <span class="close-schedule w-[1.5rem] h-[1.5rem] rounded cursor-pointer bg-blue-200 flex items-center justify-center" onclick="deleteSchedule(${index})"><i class="fa-solid fa-xmark text-blue-500"></i></span>
+            </li>
+          `
+        });
+
+        listSchedule.innerHTML = html;
+        titleSchedule.value = "";
+        descSchedule.value = "";
+      });
+
+      var deleteSchedule= function(index) {
+        Schedules = Schedules.filter(function(schedule, i) {
+          return index !== i;
+        })
+
+        let html = '';
+        Schedules.forEach((item, index) => {
+          html += `
+            <li class="border-t border-gray-500 p-2 flex items-center justify-between gap-3">
+              <p><i class="fa-solid fa-check text-blue-500 mr-5"></i>${item.title}</p>
+              <span class="close-schedule w-[1.5rem] h-[1.5rem] rounded cursor-pointer bg-blue-200 flex items-center justify-center" onclick="deleteSchedule(${index})"><i class="fa-solid fa-xmark text-blue-500"></i></span>
+            </li>
+          `
+        });
+        listSchedule.innerHTML = html;
+      }
+
+
+      // Xử lý chọn nhiều ảnh
+      document.getElementById('listImage').addEventListener('change', function(event) {
+        const listImagesDiv = document.getElementById('list_images');
+        listImagesDiv.innerHTML = '';
+
+        const files = event.target.files;
+        Array.from(files).forEach(file => {
+          if (file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+              const img = document.createElement('img');
+              img.src = e.target.result;
+              img.alt = 'Uploaded Image';
+              img.classList.add('w-32', 'h-32', 'object-cover', 'rounded', 'border');
+
+              listImagesDiv.appendChild(img);
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+      });
+
+      let Destinations = [];
+
+      const destination = document.getElementById('destination'); // select
+      const listDestination = document.getElementById('listDestination'); // ul
+
+      destination.onchange = function () {
+        if(destination.value!=="") {
+          Destinations.push({
+          id: destination.options[destination.selectedIndex].text,
+          title: destination.value
+        });
+        }
+
+        html = '';
+        Destinations.forEach((item, index) => {
+          html += `
+            <li class="border rounded border-gray-500 p-2 flex items-center justify-between gap-3">
+              <p><i class="fa-solid fa-check text-blue-500 mr-5"></i>${item.title}</p>
+              <span class="close-schedule w-[1.5rem] h-[1.5rem] rounded cursor-pointer bg-blue-200 flex items-center justify-center" onclick="deleteDestination(${index})"><i class="fa-solid fa-xmark text-blue-500"></i></span>
+            </li>
+          `
+        })
+        listDestination.innerHTML = html
+      }
+
+      var deleteDestination = function(index) {
+        Destinations = Destinations.filter(function(schedule, i) {
+          return index !== i;
+        })
+        html = '';
+        Destinations.forEach((item, index) => {
+          html += `
+            <li class="border rounded border-gray-500 p-2 flex items-center justify-between gap-3">
+              <p><i class="fa-solid fa-check text-blue-500 mr-5"></i>${item.title}</p>
+              <span class="close-schedule w-[1.5rem] h-[1.5rem] rounded cursor-pointer bg-blue-200 flex items-center justify-center" onclick="deleteDestination(${index})"><i class="fa-solid fa-xmark text-blue-500"></i></span>
+            </li>
+          `
+        })
+        listDestination.innerHTML = html
+      }
+</script>
+

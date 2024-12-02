@@ -1,0 +1,491 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="w-[100%] h-[10rem] bg-sky-500 px-[7%] flex items-center">
+    <p class="text-white">
+        <a href="Home.html">Trang chủ</a> >
+        <strong>tất cả sản phẩm</strong>
+    </p>
+</div>
+
+<section class="px-[7%] my-20">
+
+    <div class="flex gap-5">
+        <div class="w-[16rem]">
+            <div class="p-3 border border-gray-300 rounded-lg">
+                <h4>Danh mục Tour</h4>
+                <hr>
+                <div class="my-3 flex flex-col gap-3">
+                    <div class="flex justify-between items-center text-sm">
+                        <a href="">Tour trong nước</a><i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="flex justify-between items-center text-sm">
+                        <a href="">Tour nước ngoài</a><i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+                <!-- Chọn mức giá -->
+                <div class="my-5">
+                    <h4 class="mb-4">Chọn mức giá</h4>
+                    <ul class="flex flex-col gap-3">
+                        <li class="flex items-center gap-3 text-sm">
+                            <input type="checkbox">
+                            <p>Giá dưới 1.000.000đ</p>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <input type="checkbox">
+                            <p>1.000.000đ - 3.000.000đ</p>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <input type="checkbox">
+                            <p>3.000.000đ - 5.000.000đ</p>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <input type="checkbox">
+                            <p>5.000.000đ - 7.000.000đ</p>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <input type="checkbox">
+                            <p>7.000.000đ - 9.000.000đ</p>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <input type="checkbox">
+                            <p>Giá trên 9.000.000đ</p>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Điểm khởi hành -->
+                <div class="my-5">
+                    <h4 class="mb-4">Điểm khởi hành</h4>
+                    <ul class="flex flex-col gap-3">
+                        <li class="flex items-center gap-3 text-sm">
+                            <input type="checkbox">
+                            <p>Hà Nội</p>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <input type="checkbox">
+                            <p>Tp Hồ Chí Minh</p>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <input type="checkbox">
+                            <p>Huế</p>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <input type="checkbox">
+                            <p>Đà Nẵng</p>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <input type="checkbox">
+                            <p>Hải Phòng</p>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <input type="checkbox">
+                            <p>Đà Lạt</p>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Điểm đến -->
+                <div class="my-5">
+                    <h4 class="mb-4">Điểm đến</h4>
+                    <ul class="flex flex-col gap-3">
+                        <li class="flex items-center gap-3 text-sm">
+                            <input type="checkbox">
+                            <p>Úc</p>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <input type="checkbox">
+                            <p>Trung Quốc</p>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <input type="checkbox">
+                            <p>Hàn Quốc</p>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <input type="checkbox">
+                            <p>Nhật Bản</p>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <input type="checkbox">
+                            <p>Singapore</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex-1">
+            <!-- header -->
+            <div class="flex justify-between items-center w-full mb-3">
+                <div class="flex gap-3">
+                    <span id="btn_tour_list" class="w-[2rem] h-[2rem] rounded-lg border border-sky-500 flex justify-center items-center"><i class="fa-solid fa-list text-sky-500"></i></span>
+                    <span id="btn_tour_grid" class="w-[2rem] h-[2rem] rounded-lg border border-gray-300 flex justify-center items-center"><i class="fa-solid fa-border-all text-gray-300"></i></span>
+                </div>
+                <div class="flex gap-3 items-center">
+                    <span>Sắp xếp theo</span>
+                    <select id="select" name="select" class="block w-[10rem] px-4 py-1 rounded border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <option>Mặc định</option>
+                        <option>A - Z</option>
+                        <option>Z - A</option>
+                        <option>Giá tăng dần</option>
+                        <option>Giá giảm dần</option>
+                        <option>Hàng mới nhất</option>
+                        <option>Hàng cũ nhất</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Danh sách Tour -->
+            <hr />
+            <!-- Hiển thị chế độ list -->
+            <div class="flex flex-col gap-4 mt-3" id="tour_list">
+                <div class="border border-gray-300 p-4 rounded-lg flex items-center justify-between gap-3 hover:border-blue-500 cursor-pointer">
+                    <div class="relative w-[25rem] h-[11rem]">
+                        <img class="absolute top-0 left-0 w-full h-[11rem] cover rounded-lg" src="https://bizweb.dktcdn.net/thumb/large/100/505/645/products/sp2.jpg?v=1703065085930" alt="">
+                        <span class="absolute top-3 right-3"><i class="fa-regular fa-heart text-white"></i></span>
+                        <span class="absolute bottom-0 right-0 px-2 py-1 bg-black opacity-50 cursor-grabbing rounded-br-lg" title="Di chuyển bằng máy bay"><i class="fa-solid fa-plane text-white"></i></span>
+                    </div>
+                    <div class="flex-1 flex flex-col gap-3">
+                        <span class="text-gray-500">Mã tour: ND025</span>
+                        <p class="text-lg font-medium">HCM - Seoul - Đảo Nami - Trượt Tuyết Elysian 5N4Đ</p>
+                        <div class="flex gap-2">
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                        </div>
+                        <p class="text-sm"><i class="fa-regular fa-clock text-gray-500"></i> <span class="text-gray-500">Thời gian: 5N4Đ</span></p>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <p class="flex gap-2 items-center"><i class="fa-solid fa-location-dot text-blue-600"></i> <span class="text-gray-500">Khởi hành từ: Hà Nội</span></p>
+                        <span class="text-blue-600 font-medium underline underline-offset-4">15.000.000 đ</span>
+                        <a class="block px-3 py-2 rounded-lg bg-white text-sky-500 border border-sky-500 hover:text-white hover:bg-sky-500 w-[10rem] text-center" href="@Url.Action("TourDetails", "Tour", new { area = "User" })">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="border border-gray-300 p-4 rounded-lg flex items-center justify-between gap-3 hover:border-blue-500 cursor-pointer">
+                    <div class="relative w-[25rem] h-[11rem]">
+                        <img class="absolute top-0 left-0 w-full h-[11rem] cover rounded-lg" src="https://bizweb.dktcdn.net/thumb/large/100/505/645/products/sp2-04d95c8f-9688-4cbc-a200-dbfa6a9c5e12.jpg?v=1703428504240" alt="">
+                        <span class="absolute top-3 right-3"><i class="fa-regular fa-heart text-white"></i></span>
+                        <span class="absolute bottom-0 right-0 px-2 py-1 bg-black opacity-50 cursor-grabbing rounded-br-lg" title="Di chuyển bằng máy bay"><i class="fa-solid fa-plane text-white"></i></span>
+                    </div>
+                    <div class="flex-1 flex flex-col gap-3">
+                        <span class="text-gray-500">Mã tour: ND025</span>
+                        <p class="text-lg font-medium">HCM - Seoul - Đảo Nami - Trượt Tuyết Elysian 5N4Đ</p>
+                        <div class="flex gap-2">
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                        </div>
+                        <p class="text-sm"><i class="fa-regular fa-clock text-gray-500"></i> <span class="text-gray-500">Thời gian: 5N4Đ</span></p>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <p class="flex gap-2 items-center"><i class="fa-solid fa-location-dot text-blue-600"></i> <span class="text-gray-500">Khởi hành từ: Hà Nội</span></p>
+                        <span class="text-blue-600 font-medium underline underline-offset-4">15.000.000 đ</span>
+                        <a class="block px-3 py-2 rounded-lg bg-white text-sky-500 border border-sky-500 hover:text-white hover:bg-sky-500 w-[10rem] text-center" href="">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="border border-gray-300 p-4 rounded-lg flex items-center justify-between gap-3 hover:border-blue-500 cursor-pointer">
+                    <div class="relative w-[25rem] h-[11rem]">
+                        <img class="absolute top-0 left-0 w-full h-[11rem] cover rounded-lg" src="https://bizweb.dktcdn.net/thumb/large/100/505/645/products/sp1-bb7dc244-5eb1-478a-b8de-4e37bec94492.jpg?v=1703428225293" alt="">
+                        <span class="absolute top-3 right-3"><i class="fa-regular fa-heart text-white"></i></span>
+                        <span class="absolute bottom-0 right-0 px-2 py-1 bg-black opacity-50 cursor-grabbing rounded-br-lg" title="Di chuyển bằng máy bay"><i class="fa-solid fa-plane text-white"></i></span>
+                    </div>
+                    <div class="flex-1 flex flex-col gap-3">
+                        <span class="text-gray-500">Mã tour: ND025</span>
+                        <p class="text-lg font-medium">HCM - Seoul - Đảo Nami - Trượt Tuyết Elysian 5N4Đ</p>
+                        <div class="flex gap-2">
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                        </div>
+                        <p class="text-sm"><i class="fa-regular fa-clock text-gray-500"></i> <span class="text-gray-500">Thời gian: 5N4Đ</span></p>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <p class="flex gap-2 items-center"><i class="fa-solid fa-location-dot text-blue-600"></i> <span class="text-gray-500">Khởi hành từ: Hà Nội</span></p>
+                        <span class="text-blue-600 font-medium underline underline-offset-4">15.000.000 đ</span>
+                        <a class="block px-3 py-2 rounded-lg bg-white text-sky-500 border border-sky-500 hover:text-white hover:bg-sky-500 w-[10rem] text-center" href="">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="border border-gray-300 p-4 rounded-lg flex items-center justify-between gap-3 hover:border-blue-500 cursor-pointer">
+                    <div class="relative w-[25rem] h-[11rem]">
+                        <img class="absolute top-0 left-0 w-full h-[11rem] cover rounded-lg" src="https://bizweb.dktcdn.net/thumb/large/100/505/645/products/sp2-4396daff-9d7e-4c1c-8464-66fa8b3e5f3e.jpg?v=1703427487077" alt="">
+                        <span class="absolute top-3 right-3"><i class="fa-regular fa-heart text-white"></i></span>
+                        <span class="absolute bottom-0 right-0 px-2 py-1 bg-black opacity-50 cursor-grabbing rounded-br-lg" title="Di chuyển bằng máy bay"><i class="fa-solid fa-plane text-white"></i></span>
+                    </div>
+                    <div class="flex-1 flex flex-col gap-3">
+                        <span class="text-gray-500">Mã tour: ND025</span>
+                        <p class="text-lg font-medium">HCM - Seoul - Đảo Nami - Trượt Tuyết Elysian 5N4Đ</p>
+                        <div class="flex gap-2">
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                        </div>
+                        <p class="text-sm"><i class="fa-regular fa-clock text-gray-500"></i> <span class="text-gray-500">Thời gian: 5N4Đ</span></p>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <p class="flex gap-2 items-center"><i class="fa-solid fa-location-dot text-blue-600"></i> <span class="text-gray-500">Khởi hành từ: Hà Nội</span></p>
+                        <span class="text-blue-600 font-medium underline underline-offset-4">15.000.000 đ</span>
+                        <a class="block px-3 py-2 rounded-lg bg-white text-sky-500 border border-sky-500 hover:text-white hover:bg-sky-500 w-[10rem] text-center" href="">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="border border-gray-300 p-4 rounded-lg flex items-center justify-between gap-3 hover:border-blue-500 cursor-pointer">
+                    <div class="relative w-[25rem] h-[11rem]">
+                        <img class="absolute top-0 left-0 w-full h-[11rem] cover rounded-lg" src="https://bizweb.dktcdn.net/thumb/large/100/505/645/products/sp1-14c44869-c62d-4f20-98cd-1c9454419935.jpg?v=1703427044503" alt="">
+                        <span class="absolute top-3 right-3"><i class="fa-regular fa-heart text-white"></i></span>
+                        <span class="absolute bottom-0 right-0 px-2 py-1 bg-black opacity-50 cursor-grabbing rounded-br-lg" title="Di chuyển bằng máy bay"><i class="fa-solid fa-plane text-white"></i></span>
+                    </div>
+                    <div class="flex-1 flex flex-col gap-3">
+                        <span class="text-gray-500">Mã tour: ND025</span>
+                        <p class="text-lg font-medium">HCM - Seoul - Đảo Nami - Trượt Tuyết Elysian 5N4Đ</p>
+                        <div class="flex gap-2">
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                        </div>
+                        <p class="text-sm"><i class="fa-regular fa-clock text-gray-500"></i> <span class="text-gray-500">Thời gian: 5N4Đ</span></p>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <p class="flex gap-2 items-center"><i class="fa-solid fa-location-dot text-blue-600"></i> <span class="text-gray-500">Khởi hành từ: Hà Nội</span></p>
+                        <span class="text-blue-600 font-medium underline underline-offset-4">15.000.000 đ</span>
+                        <a class="block px-3 py-2 rounded-lg bg-white text-sky-500 border border-sky-500 hover:text-white hover:bg-sky-500 w-[10rem] text-center" href="">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="border border-gray-300 p-4 rounded-lg flex items-center justify-between gap-3 hover:border-blue-500 cursor-pointer">
+                    <div class="relative w-[25rem] h-[11rem]">
+                        <img class="absolute top-0 left-0 w-full h-[11rem] cover rounded-lg" src="https://bizweb.dktcdn.net/thumb/large/100/505/645/products/sp11-4.jpg?v=1703231106977" alt="">
+                        <span class="absolute top-3 right-3"><i class="fa-regular fa-heart text-white"></i></span>
+                        <span class="absolute bottom-0 right-0 px-2 py-1 bg-black opacity-50 cursor-grabbing rounded-br-lg" title="Di chuyển bằng máy bay"><i class="fa-solid fa-plane text-white"></i></span>
+                    </div>
+                    <div class="flex-1 flex flex-col gap-3">
+                        <span class="text-gray-500">Mã tour: ND025</span>
+                        <p class="text-lg font-medium">HCM - Seoul - Đảo Nami - Trượt Tuyết Elysian 5N4Đ</p>
+                        <div class="flex gap-2">
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                        </div>
+                        <p class="text-sm"><i class="fa-regular fa-clock text-gray-500"></i> <span class="text-gray-500">Thời gian: 5N4Đ</span></p>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <p class="flex gap-2 items-center"><i class="fa-solid fa-location-dot text-blue-600"></i> <span class="text-gray-500">Khởi hành từ: Hà Nội</span></p>
+                        <span class="text-blue-600 font-medium underline underline-offset-4">15.000.000 đ</span>
+                        <a class="block px-3 py-2 rounded-lg bg-white text-sky-500 border border-sky-500 hover:text-white hover:bg-sky-500 w-[10rem] text-center" href="">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="border border-gray-300 p-4 rounded-lg flex items-center justify-between gap-3 hover:border-blue-500 cursor-pointer">
+                    <div class="relative w-[25rem] h-[11rem]">
+                        <img class="absolute top-0 left-0 w-full h-[11rem] cover rounded-lg" src="https://bizweb.dktcdn.net/thumb/large/100/505/645/products/sp8.jpg?v=1703230670517" alt="">
+                        <span class="absolute top-3 right-3"><i class="fa-regular fa-heart text-white"></i></span>
+                        <span class="absolute bottom-0 right-0 px-2 py-1 bg-black opacity-50 cursor-grabbing rounded-br-lg" title="Di chuyển bằng máy bay"><i class="fa-solid fa-plane text-white"></i></span>
+                    </div>
+                    <div class="flex-1 flex flex-col gap-3">
+                        <span class="text-gray-500">Mã tour: ND025</span>
+                        <p class="text-lg font-medium">HCM - Seoul - Đảo Nami - Trượt Tuyết Elysian 5N4Đ</p>
+                        <div class="flex gap-2">
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                            <i class="fa-solid fa-star text-blue-600"></i>
+                        </div>
+                        <p class="text-sm"><i class="fa-regular fa-clock text-gray-500"></i> <span class="text-gray-500">Thời gian: 5N4Đ</span></p>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <p class="flex gap-2 items-center"><i class="fa-solid fa-location-dot text-blue-600"></i> <span class="text-gray-500">Khởi hành từ: Hà Nội</span></p>
+                        <span class="text-blue-600 font-medium underline underline-offset-4">15.000.000 đ</span>
+                        <a class="block px-3 py-2 rounded-lg bg-white text-sky-500 border border-sky-500 hover:text-white hover:bg-sky-500 w-[10rem] text-center" href="">Xem chi tiết</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Hiển thị chế độ grid -->
+            <div class="flex gap-3 flex-wrap mt-3" style="display: none;" id="tour_grid">
+                <div style="flex: 1 1 18rem;" class="border border-gray-300 p-4 rounded-lg flex flex-col gap-3 hover:border-blue-500 cursor-pointer">
+                    <div class="relative w-100 h-[10rem]">
+                        <a href="@Url.Action("TourDetails", "Tour", new { area = "User" })">
+                            <img class="absolute top-0 left-0 w-full h-[10rem] cover rounded-t-lg" src="https://bizweb.dktcdn.net/thumb/large/100/505/645/products/sp2-04d95c8f-9688-4cbc-a200-dbfa6a9c5e12.jpg?v=1703428504240" alt="">
+                        </a>
+                        <span class="absolute top-3 right-3"><i class="fa-regular fa-heart text-white"></i></span>
+                        <span class="absolute bottom-0 right-0 px-2 py-1 bg-black opacity-50 cursor-grabbing" title="Di chuyển bằng máy bay"><i class="fa-solid fa-plane text-white"></i></span>
+                    </div>
+                    <p class="flex gap-2 items-center"><i class="fa-solid fa-location-dot text-blue-600"></i> <span class="text-gray-500">Khởi hành từ: Hà Nội</span></p>
+                    <a href="@Url.Action("TourDetails", "Tour", new { area = "User" })" class="text-lg font-medium">HCM - Seoul - Đảo Nami - Trượt Tuyết Elysian 5N4Đ</a>
+                    <div class="flex gap-2">
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                    </div>
+                    <span class="text-blue-600 font-medium underline underline-offset-4">15.000.000 đ</span>
+                    <p class="text-sm"><i class="fa-regular fa-clock text-gray-500"></i> <span class="text-gray-500">Thời gian: 5N4Đ</span></p>
+                </div>
+                <div style="flex: 1 1 18rem;" class="border border-gray-300 p-4 rounded-lg flex flex-col gap-3 hover:border-blue-500 cursor-pointer">
+                    <div class="relative w-100 h-[10rem]">
+                        <img class="absolute top-0 left-0 w-full h-[10rem] cover rounded-t-lg" src="https://bizweb.dktcdn.net/thumb/large/100/505/645/products/sp1-bb7dc244-5eb1-478a-b8de-4e37bec94492.jpg?v=1703428225293" alt="">
+                        <span class="absolute top-3 right-3"><i class="fa-regular fa-heart text-white"></i></span>
+                        <span class="absolute bottom-0 right-0 px-2 py-1 bg-black opacity-50 cursor-grabbing" title="Di chuyển bằng máy bay"><i class="fa-solid fa-plane text-white"></i></span>
+                    </div>
+                    <p class="flex gap-2 items-center"><i class="fa-solid fa-location-dot text-blue-600"></i> <span class="text-gray-500">Khởi hành từ: Hà Nội</span></p>
+                    <p class="text-lg font-medium">HCM - Seoul - Đảo Nami - Trượt Tuyết Elysian 5N4Đ</p>
+                    <div class="flex gap-2">
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                    </div>
+                    <span class="text-blue-600 font-medium underline underline-offset-4">15.000.000 đ</span>
+                    <p class="text-sm"><i class="fa-regular fa-clock text-gray-500"></i> <span class="text-gray-500">Thời gian: 5N4Đ</span></p>
+                </div>
+                <div style="flex: 1 1 18rem;" class="border border-gray-300 p-4 rounded-lg flex flex-col gap-3 hover:border-blue-500 cursor-pointer">
+                    <div class="relative w-100 h-[10rem]">
+                        <img class="absolute top-0 left-0 w-full h-[10rem] cover rounded-t-lg" src="https://bizweb.dktcdn.net/thumb/large/100/505/645/products/sp2-4396daff-9d7e-4c1c-8464-66fa8b3e5f3e.jpg?v=1703427487077" alt="">
+                        <span class="absolute top-3 right-3"><i class="fa-regular fa-heart text-white"></i></span>
+                        <span class="absolute bottom-0 right-0 px-2 py-1 bg-black opacity-50 cursor-grabbing" title="Di chuyển bằng máy bay"><i class="fa-solid fa-plane text-white"></i></span>
+                    </div>
+                    <p class="flex gap-2 items-center"><i class="fa-solid fa-location-dot text-blue-600"></i> <span class="text-gray-500">Khởi hành từ: Hà Nội</span></p>
+                    <p class="text-lg font-medium">HCM - Seoul - Đảo Nami - Trượt Tuyết Elysian 5N4Đ</p>
+                    <div class="flex gap-2">
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                    </div>
+                    <span class="text-blue-600 font-medium underline underline-offset-4">15.000.000 đ</span>
+                    <p class="text-sm"><i class="fa-regular fa-clock text-gray-500"></i> <span class="text-gray-500">Thời gian: 5N4Đ</span></p>
+                </div>
+                <div style="flex: 1 1 18rem;" class="border border-gray-300 p-4 rounded-lg flex flex-col gap-3 hover:border-blue-500 cursor-pointer">
+                    <div class="relative w-100 h-[10rem]">
+                        <img class="absolute top-0 left-0 w-full h-[10rem] cover rounded-t-lg" src="https://bizweb.dktcdn.net/thumb/large/100/505/645/products/sp1-14c44869-c62d-4f20-98cd-1c9454419935.jpg?v=1703427044503" alt="">
+                        <span class="absolute top-3 right-3"><i class="fa-regular fa-heart text-white"></i></span>
+                        <span class="absolute bottom-0 right-0 px-2 py-1 bg-black opacity-50 cursor-grabbing" title="Di chuyển bằng máy bay"><i class="fa-solid fa-plane text-white"></i></span>
+                    </div>
+                    <p class="flex gap-2 items-center"><i class="fa-solid fa-location-dot text-blue-600"></i> <span class="text-gray-500">Khởi hành từ: Hà Nội</span></p>
+                    <p class="text-lg font-medium">HCM - Seoul - Đảo Nami - Trượt Tuyết Elysian 5N4Đ</p>
+                    <div class="flex gap-2">
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                    </div>
+                    <span class="text-blue-600 font-medium underline underline-offset-4">15.000.000 đ</span>
+                    <p class="text-sm"><i class="fa-regular fa-clock text-gray-500"></i> <span class="text-gray-500">Thời gian: 5N4Đ</span></p>
+                </div>
+                <div style="flex: 1 1 18rem;" class="border border-gray-300 p-4 rounded-lg flex flex-col gap-3 hover:border-blue-500 cursor-pointer">
+                    <div class="relative w-100 h-[10rem]">
+                        <img class="absolute top-0 left-0 w-full h-[10rem] cover rounded-t-lg" src="https://bizweb.dktcdn.net/thumb/large/100/505/645/products/sp11-4.jpg?v=1703231106977" alt="">
+                        <span class="absolute top-3 right-3"><i class="fa-regular fa-heart text-white"></i></span>
+                        <span class="absolute bottom-0 right-0 px-2 py-1 bg-black opacity-50 cursor-grabbing" title="Di chuyển bằng máy bay"><i class="fa-solid fa-plane text-white"></i></span>
+                    </div>
+                    <p class="flex gap-2 items-center"><i class="fa-solid fa-location-dot text-blue-600"></i> <span class="text-gray-500">Khởi hành từ: Hà Nội</span></p>
+                    <p class="text-lg font-medium">HCM - Seoul - Đảo Nami - Trượt Tuyết Elysian 5N4Đ</p>
+                    <div class="flex gap-2">
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                    </div>
+                    <span class="text-blue-600 font-medium underline underline-offset-4">15.000.000 đ</span>
+                    <p class="text-sm"><i class="fa-regular fa-clock text-gray-500"></i> <span class="text-gray-500">Thời gian: 5N4Đ</span></p>
+                </div>
+                <div style="flex: 1 1 18rem;" class="border border-gray-300 p-4 rounded-lg flex flex-col gap-3 hover:border-blue-500 cursor-pointer">
+                    <div class="relative w-100 h-[10rem]">
+                        <img class="absolute top-0 left-0 w-full h-[10rem] cover rounded-t-lg" src="https://bizweb.dktcdn.net/thumb/large/100/505/645/products/sp9.jpg?v=1703230812460" alt="">
+                        <span class="absolute top-3 right-3"><i class="fa-regular fa-heart text-white"></i></span>
+                        <span class="absolute bottom-0 right-0 px-2 py-1 bg-black opacity-50 cursor-grabbing" title="Di chuyển bằng máy bay"><i class="fa-solid fa-plane text-white"></i></span>
+                    </div>
+                    <p class="flex gap-2 items-center"><i class="fa-solid fa-location-dot text-blue-600"></i> <span class="text-gray-500">Khởi hành từ: Hà Nội</span></p>
+                    <p class="text-lg font-medium">HCM - Seoul - Đảo Nami - Trượt Tuyết Elysian 5N4Đ</p>
+                    <div class="flex gap-2">
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                    </div>
+                    <span class="text-blue-600 font-medium underline underline-offset-4">15.000.000 đ</span>
+                    <p class="text-sm"><i class="fa-regular fa-clock text-gray-500"></i> <span class="text-gray-500">Thời gian: 5N4Đ</span></p>
+                </div>
+                <div style="flex: 1 1 18rem;" class="border border-gray-300 p-4 rounded-lg flex flex-col gap-3 hover:border-blue-500 cursor-pointer">
+                    <div class="relative w-100 h-[10rem]">
+                        <img class="absolute top-0 left-0 w-full h-[10rem] cover rounded-t-lg" src="https://bizweb.dktcdn.net/thumb/large/100/505/645/products/sp4-d5fc5417-5971-473a-a25a-b3fcb2f82b86.jpg?v=1703221163430" alt="">
+                        <span class="absolute top-3 right-3"><i class="fa-regular fa-heart text-white"></i></span>
+                        <span class="absolute bottom-0 right-0 px-2 py-1 bg-black opacity-50 cursor-grabbing" title="Di chuyển bằng máy bay"><i class="fa-solid fa-plane text-white"></i></span>
+                    </div>
+                    <p class="flex gap-2 items-center"><i class="fa-solid fa-location-dot text-blue-600"></i> <span class="text-gray-500">Khởi hành từ: Hà Nội</span></p>
+                    <p class="text-lg font-medium">HCM - Seoul - Đảo Nami - Trượt Tuyết Elysian 5N4Đ</p>
+                    <div class="flex gap-2">
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                    </div>
+                    <span class="text-blue-600 font-medium underline underline-offset-4">15.000.000 đ</span>
+                    <p class="text-sm"><i class="fa-regular fa-clock text-gray-500"></i> <span class="text-gray-500">Thời gian: 5N4Đ</span></p>
+                </div>
+                <div style="flex: 1 1 18rem;" class="border border-gray-300 p-4 rounded-lg flex flex-col gap-3 hover:border-blue-500 cursor-pointer">
+                    <div class="relative w-100 h-[10rem]">
+                        <img class="absolute top-0 left-0 w-full h-[10rem] cover rounded-t-lg" src="https://bizweb.dktcdn.net/thumb/large/100/505/645/products/sp2-2b7952a6-6473-47e8-b11d-05d113fd7b41.jpg?v=1703220372963" alt="">
+                        <span class="absolute top-3 right-3"><i class="fa-regular fa-heart text-white"></i></span>
+                        <span class="absolute bottom-0 right-0 px-2 py-1 bg-black opacity-50 cursor-grabbing" title="Di chuyển bằng máy bay"><i class="fa-solid fa-plane text-white"></i></span>
+                    </div>
+                    <p class="flex gap-2 items-center"><i class="fa-solid fa-location-dot text-blue-600"></i> <span class="text-gray-500">Khởi hành từ: Hà Nội</span></p>
+                    <p class="text-lg font-medium">HCM - Seoul - Đảo Nami - Trượt Tuyết Elysian 5N4Đ</p>
+                    <div class="flex gap-2">
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                    </div>
+                    <span class="text-blue-600 font-medium underline underline-offset-4">15.000.000 đ</span>
+                    <p class="text-sm"><i class="fa-regular fa-clock text-gray-500"></i> <span class="text-gray-500">Thời gian: 5N4Đ</span></p>
+                </div>
+                <div style="flex: 1 1 18rem;" class="border border-gray-300 p-4 rounded-lg flex flex-col gap-3 hover:border-blue-500 cursor-pointer">
+                    <div class="relative w-100 h-[10rem]">
+                        <img class="absolute top-0 left-0 w-full h-[10rem] cover rounded-t-lg" src="https://bizweb.dktcdn.net/thumb/large/100/505/645/products/sp2-88e00534-2c46-43a9-8ff5-378b5a664734.jpg?v=1703215536680" alt="">
+                        <span class="absolute top-3 right-3"><i class="fa-regular fa-heart text-white"></i></span>
+                        <span class="absolute bottom-0 right-0 px-2 py-1 bg-black opacity-50 cursor-grabbing" title="Di chuyển bằng máy bay"><i class="fa-solid fa-plane text-white"></i></span>
+                    </div>
+                    <p class="flex gap-2 items-center"><i class="fa-solid fa-location-dot text-blue-600"></i> <span class="text-gray-500">Khởi hành từ: Hà Nội</span></p>
+                    <p class="text-lg font-medium">HCM - Seoul - Đảo Nami - Trượt Tuyết Elysian 5N4Đ</p>
+                    <div class="flex gap-2">
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                        <i class="fa-solid fa-star text-blue-600"></i>
+                    </div>
+                    <span class="text-blue-600 font-medium underline underline-offset-4">15.000.000 đ</span>
+                    <p class="text-sm"><i class="fa-regular fa-clock text-gray-500"></i> <span class="text-gray-500">Thời gian: 5N4Đ</span></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+        document.getElementById("btn_tour_list").onclick = function() {
+            document.getElementById("tour_grid").style.display = "none";
+            document.getElementById("tour_list").style.display = "flex";
+        }
+        document.getElementById("btn_tour_grid").onclick = function() {
+            document.getElementById("tour_grid").style.display = "flex";
+            document.getElementById("tour_list").style.display = "none";
+        }
+</script>

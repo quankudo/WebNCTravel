@@ -1,0 +1,468 @@
+﻿
+@{
+    ViewBag.Title = "TourDetails";
+}
+
+<style>
+    .active_title {
+        background-color: rgb(14 165 233);
+        color: white;
+    }
+</style>
+
+<div class="w-[100%] h-[10rem] bg-sky-500 px-[7%] flex items-center">
+    <p class="text-white">
+        <a href="Home.html">Trang chủ</a> >
+        <a href="Tour.html">Đà Nẵng</a> >
+        <strong>Tết 2024: Đà Nẵng - Hội An - Bà Nà - Huế - Đông Thiên Đường 4N3Đ</strong>
+    </p>
+</div>
+
+<section class="px-[7%] my-10">
+    <div class="flex flex-col gap-3">
+        <h4 class="text-3xl font-medium">Tết 2024: Đà Nẵng - Hội An - Bà Nà - Huế - Đông Thiên Đường 4N3Đ</h4>
+        <div class="flex gap-2">
+            <i class="fa-regular fa-star text-sky-500"></i>
+            <i class="fa-regular fa-star text-sky-500"></i>
+            <i class="fa-regular fa-star text-sky-500"></i>
+            <i class="fa-regular fa-star text-sky-500"></i>
+            <i class="fa-regular fa-star text-sky-500"></i>
+        </div>
+        <div class="flex gap-12 items-center">
+            <div class="flex items-center gap-3">
+                <span class="w-[3rem] h-[3rem] rounded-lg bg-sky-200 flex justify-center items-center text-sky-500 text-xl"><i class="fa-solid fa-location-dot"></i></span>
+                <div class="flex flex-col">
+                    <span class="text-gray-500">Khởi hành từ</span>
+                    <span class="text-sky-500">Đà Nẵng</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="w-[3rem] h-[3rem] text-xl rounded-lg bg-sky-200 flex justify-center items-center text-sky-500"><i class="fa-solid fa-location-dot"></i></span>
+                <div class="flex flex-col">
+                    <span class="text-gray-500">Điểm đến</span>
+                    <span class="text-sky-500">Huế</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="w-[3rem] h-[3rem] text-xl rounded-lg bg-sky-200 flex justify-center items-center text-sky-500"><i class="fa-regular fa-clock"></i></span>
+                <div class="flex flex-col">
+                    <span class="text-gray-500">Thời gian</span>
+                    <span class="text-sky-500">4N3Đ</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="w-[3rem] h-[3rem] text-xl rounded-lg bg-sky-200 flex justify-center items-center text-sky-500"><i class="fa-regular fa-user"></i></span>
+                <div class="flex flex-col">
+                    <span class="text-gray-500">Số chỗ còn nhận</span>
+                    <span class="text-sky-500">Còn chỗ</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="w-[3rem] h-[3rem] text-xl rounded-lg bg-sky-200 flex justify-center items-center text-sky-500"><i class="fa-solid fa-plane"></i></i></span>
+                <div class="flex flex-col">
+                    <span class="text-gray-500">Di chuyển bằng</span>
+                    <span class="text-sky-500">Máy bay</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-10 flex justify-between gap-5 items-start">
+        <div class="w-[46rem]">
+            <div class="relative w-full h-[25rem] mb-3">
+                <img class="rounded-lg absolute top-0 left-0 w-full h-full" id="img_active" src="https://bizweb.dktcdn.net/100/505/645/products/sp2-2b7952a6-6473-47e8-b11d-05d113fd7b41.jpg?v=1703220372963" alt="">
+                <span class="absolute bottom-3 right-3 rounded-lg w-[2rem] h-[2rem] bg-black opacity-50 text-white flex justify-center items-center"><i class="fa-regular fa-heart"></i></span>
+            </div>
+            <div class="flex justify-between">
+                <div class="p-2 hover:rounded-lg border border-white hover:border-sky-500"><img class="rounded-lg img" src="https://bizweb.dktcdn.net/thumb/medium/100/505/645/products/sp2-2b7952a6-6473-47e8-b11d-05d113fd7b41.jpg?v=1703220372963" alt=""></div>
+                <div class="p-2 hover:rounded-lg border border-white hover:border-sky-500"><img class="rounded-lg img" src="https://bizweb.dktcdn.net/thumb/medium/100/505/645/products/sp2-2-a8013f85-f312-4ea4-b19c-afccec4d1384.jpg?v=1703220373757" alt=""></div>
+                <div class="p-2 hover:rounded-lg border border-white hover:border-sky-500"><img class="rounded-lg img" src="https://bizweb.dktcdn.net/thumb/medium/100/505/645/products/sp2-8.jpg?v=1703220374393" alt=""></div>
+                <div class="p-2 hover:rounded-lg border border-white hover:border-sky-500"><img class="rounded-lg img" src="https://bizweb.dktcdn.net/thumb/medium/100/505/645/products/sp2-7-fcfccebf-25fa-46df-b0b1-bfa0d4e466c5.jpg?v=1703220374973" alt=""></div>
+                <div class="p-2 hover:rounded-lg border border-white hover:border-sky-500"><img class="rounded-lg img" src="https://bizweb.dktcdn.net/thumb/medium/100/505/645/products/sp2-6-7d59a6f3-18da-4778-ad4c-7e8de4124181.jpg?v=1703220375573" alt=""></div>
+            </div>
+            <!-- Chia sẽ -->
+            <div class="flex gap-3 items-center">
+                <p><i class="fa-solid fa-share-nodes text-blue-600"></i> Chia sẽ: </p>
+                <i class="fa-brands fa-facebook text-blue-500 text-2xl"></i>
+                <i class="fa-brands fa-facebook-messenger text-blue-500 text-2xl"></i>
+                <i class="fa-brands fa-square-twitter text-blue-500 text-2xl"></i>
+            </div>
+
+            <!-- Tab content -->
+            <div class="my-10">
+                <div class="flex gap-5">
+                    <button class="px-8 py-3 bg-sky-100 font-medium rounded-t-lg active_title" id="btn_desc">Mô tả</button>
+                    <button class="px-8 py-3 bg-sky-100 font-medium rounded-t-lg" id="btn_schedule">Lịch trình</button>
+                    <button class="px-8 py-3 bg-sky-100 font-medium rounded-t-lg" id="btn">Vị trí</button>
+                    <button class="px-8 py-3 bg-sky-100 font-medium rounded-t-lg" id="btn_evaluate">Đánh giá tour</button>
+                </div>
+                <hr class="w-full h-[2px] bg-sky-500">
+                <div class="p-4 rounded-b-lg" id="desc_tour" style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);">
+                    <ul class="flex flex-col gap-1">
+                        <li>
+                            Tham gia <strong>Tour du lịch Tết miền Trung 4N3Đ</strong> từ BestPrice,
+                            du khách được khám phá nét đẹp của thành phố biển đáng sống Đà Nẵng,
+                            trải nghiệm cáp treo dài nhất thế giới tại Bà Nà, tham quan Đô thị cổ
+                            Hội An thơ mộng mang đậm nét đẹp truyền thống, bình dị và lâu đời cũng
+                            như chiêm ngưỡng vẻ cổ kính của di tích Cố đô Huế - Di sản Văn hóa thế giới.
+                            Du xuân miền Trung cùng BestPrice với lịch trình siêu hấp dẫn dưới đây!
+                        </li>
+                        <li class="my-3">Tổng quan:</li>
+                        <li>
+                            Thưởng thức các món ăn đặc sản và tận hưởng không khí ngày Tết tại miền Trung
+                            Vừa được tắm biển vừa chiêm ngưỡng quang cảnh đồi núi hoang sơ tuyệt đẹp
+                            Chiêm ngưỡng các cây cầu nổi tiếng của Thành phố Du lịch Đà Nẵng: cầu Rồng, cầu quay Sông Hàn, cầu treo Thuận Phước
+                        </li>
+                        <li>
+                            Khám phá vẻ đẹp các hang động thạch nhũ kỳ vĩ - kiệt tác của thiên nhiên Quảng Bình
+                            Bâng khuâng khi đứng trước khung cảnh yên bình, thơ mộng của Phố cổ Hội An và xứ Huế
+                        </li>
+                        <li><strong>Điểm tham quan</strong>: Núi Bà Nà, Bán đảo Sơn Trà, Phố Cổ Hội An, Động Thiên Đường</li>
+                        <li><strong>Chủ đề</strong>: Văn hóa, Khám phá, Ẩm thực</li>
+                    </ul>
+                </div>
+                <div id="schedule_tour" class="flex flex-col gap-3 py-6" style="display: none;">
+                    <div class="px-4 py-3 bg-sky-200 flex justify-between items-center rounded-lg">
+                        <p>Ngày 1: Hà Nội - Trương Gia Giới</p>
+                        <span><i class="fa-solid fa-circle-chevron-down"></i></span>
+                    </div>
+                    <div class="px-4 py-3 bg-sky-200 flex justify-between items-center rounded-lg">
+                        <p>Ngày 1: Hà Nội - Trương Gia Giới</p>
+                        <span><i class="fa-solid fa-circle-chevron-down"></i></span>
+                    </div>
+                    <div class="px-4 py-3 bg-sky-200 flex justify-between items-center rounded-lg">
+                        <p>Ngày 1: Hà Nội - Trương Gia Giới</p>
+                        <span><i class="fa-solid fa-circle-chevron-down"></i></span>
+                    </div>
+                    <div class="px-4 py-3 bg-sky-200 flex justify-between items-center rounded-lg">
+                        <p>Ngày 1: Hà Nội - Trương Gia Giới</p>
+                        <span><i class="fa-solid fa-circle-chevron-down"></i></span>
+                    </div>
+                    <div class="px-4 py-3 bg-sky-200 flex justify-between items-center rounded-lg">
+                        <p>Ngày 1: Hà Nội - Trương Gia Giới</p>
+                        <span><i class="fa-solid fa-circle-chevron-down"></i></span>
+                    </div>
+                    <div class="px-4 py-3 bg-sky-200 flex justify-between items-center rounded-lg">
+                        <p>Ngày 1: Hà Nội - Trương Gia Giới</p>
+                        <span><i class="fa-solid fa-circle-chevron-down"></i></span>
+                    </div>
+                </div>
+                <div id="evaluate_tour" class="p-5" style="display: none;">
+                    <div class="flex flex-col items-center gap-3 p-5 hidden" style="background-color: #f2f8ea;">
+                        <p class="text-center">Hiện tại sản phẩm chưa có đánh giá nào, bạn hãy trở thành người đầu tiên đánh giá cho sản phẩm này</p>
+                        <button id="btnDanhGia" class="bg-lightgreen-500 px-6 py-2 text-white rounded" style="background-color: #80bb35;">Gửi đánh giá của bạn</button>
+                    </div>
+                    <div class="border border-gray-400">
+                        <div class="p-5 flex gap-5" style="background-color: #f2f8ea;">
+                            <div class="flex flex-col items-center gap-3">
+                                <span class="text-4xl font-medium" style="color: #80bb35;">4/5</span>
+                                <div>
+                                    <i class="fa-solid fa-star text-yellow-500"></i>
+                                    <i class="fa-solid fa-star text-yellow-500"></i>
+                                    <i class="fa-solid fa-star text-yellow-500"></i>
+                                    <i class="fa-solid fa-star text-yellow-500"></i>
+                                    <i class="fa-regular fa-star text-yellow-500"></i>
+                                </div>
+                                <span>(2 đánh giá)</span>
+                                <button class="bg-lightgreen-500 px-6 py-2 text-white rounded" style="background-color: #80bb35;">
+                                    Gửi đánh giá của bạn
+                                </button>
+                            </div>
+                            <div class="flex-1">
+                                <div class="px-4 py-1 rounded mb-4 mr-3 inline-block " style="color: #80bb35; border: 1px solid #80bb35;">
+                                    Tất cả
+                                </div>
+                                <div class="px-4 py-1 rounded mb-4 mr-3 inline-block" style="color: #80bb35; border: 1px solid #80bb35;">
+                                    5 điểm (<span>1</span>)
+                                </div>
+                                <div class="px-4 py-1 rounded mb-4 mr-3 inline-block" style="color: #80bb35; border: 1px solid #80bb35;">
+                                    4 điểm (<span>1</span>)
+                                </div>
+                                <div class="px-4 py-1 rounded mb-4 mr-3 inline-block" style="color: #80bb35; border: 1px solid #80bb35;">
+                                    3 điểm (<span>1</span>)
+                                </div>
+                                <div class="px-4 py-1 rounded mb-4 mr-3 inline-block" style="color: #80bb35; border: 1px solid #80bb35;">
+                                    2 điểm (<span>1</span>)
+                                </div>
+                                <div class="px-4 py-1 rounded mb-4 mr-3 inline-block" style="color: #80bb35; border: 1px solid #80bb35;">
+                                    1 điểm (<span>0</span>)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-center items-center h-[10rem] bg-white">
+                            Không có đánh giá nào phù hợp với bộ lọc!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex-1 p-3 bg-sky-100 rounded-lg">
+            <span class="text-3xl font-medium text-sky-500 mb-5 block">4.500.000đ</span>
+            <p><strong>Mã tour:</strong> ND013</p>
+            <hr class="my-3" />
+            <div class="flex justify-between items-center">
+                <strong>Mã giảm giá</strong>
+                <div class="flex gap-3">
+                    <span class="text-white bg-sky-500 rounded-br-lg rounded-tl-lg px-4 py-1">Giảm 50%</span>
+                    <span class="text-white bg-sky-500 rounded-br-lg rounded-tl-lg px-4 py-1">Giảm 15%</span>
+                    <span class="text-white bg-sky-500 rounded-br-lg rounded-tl-lg px-4 py-1">Giảm 10%</span>
+                </div>
+            </div>
+            <hr class="my-3" />
+            <div>
+                <div class="flex items-center gap-3">
+                    <span class="w-[3rem] h-[3rem] rounded-lg bg-sky-200 flex justify-center items-center text-sky-500 text-xl"><i class="fa-regular fa-clock"></i></span>
+                    <input type="date" placeholder="Chọn ngày đi" class="flex-1 border border-sky-500 px-4 py-2 rounded-lg">
+                </div>
+            </div>
+            <div class="flex flex-col gap-3">
+                <span class="font-medium">Loại khách</span>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-400 font-sm">Người lớn</span>
+                    <div class="flex justify-between items-center gap-8">
+                        <div class="flex justify-between border border-sky-500 rounded-lg p-2 w-[7rem] bg-white">
+                            <button class="font-medium">-</button>
+                            <span class="text-gray-500">1</span>
+                            <button class="font-medium">+</button>
+                        </div>
+                        <span class="font-sm text-sky-500">4.500.000đ</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-400 font-sm">Trẻ em</span>
+                    <div class="flex justify-between items-center gap-8">
+                        <div class="flex justify-between border border-sky-500 rounded-lg p-2 w-[7rem] bg-white">
+                            <button class="font-medium">-</button>
+                            <span class="text-gray-500">1</span>
+                            <button class="font-medium">+</button>
+                        </div>
+                        <span class="font-sm text-sky-500">4.500.000đ</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-400 font-sm">Em bé</span>
+                    <div class="flex justify-between items-center gap-8">
+                        <div class="flex justify-between border border-sky-500 rounded-lg p-2 w-[7rem] bg-white">
+                            <button class="font-medium">-</button>
+                            <span class="text-gray-500">1</span>
+                            <button class="font-medium">+</button>
+                        </div>
+                        <span class="font-sm text-sky-500">4.500.000đ</span>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3" />
+            <div class="flex justify-between items-center">
+                <span>Tổng tiền</span>
+                <span class="text-2xl text-sky-500">0đ</span>
+            </div>
+            <div class="flex justify-between gap-5 mt-3">
+                <a href="@Url.Action("Cart", "Home", new { area = "User" })" class="flex-1 text-white bg-sky-500 px-4 py-2 rounded-lg">Đặt ngay</a> @*khi click vào thẻ a thì ta thêm Tour vào giỏ hàng --> Chuyển đến trang giỏ hàng*@
+                <a href="@Url.Action("Contact", "Home", new { area = "User" })" class="flex-1 text-blue-600 border border-sky-500 rounded-lg px-4 py-2">Liên hệ tư vấn</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="addDanhGia" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center hidden">
+    <div class="w-[35rem] mx-auto p-6 bg-white shadow-lg rounded-lg rounded-md border border-gray-300 relative">
+        <h2 class="text-2xl font text-center mb-6">Đánh giá Tour du lịch</h2>
+        <p class="text-2xl font-semibold text-center mb-6">Nha Trang: Vườn Nho - Đồng Cừu - Hang Rái 4N3Đ</p>
+        <button id="closeAdd" class="absolute top-5 right-5 w-[2rem] h-[2rem] bg-blue-200 rounded flex justify-center items-center"><i class="fa-solid fa-xmark text-blue-500"></i></button>
+        <form action="#" method="POST">
+            <div class="mb-4">
+                <label for="star" class="block text-sm font-medium text-gray-700">Đánh giá của bạn về sản phẩm:</label>
+                <input type="number" min="1" max="5" id="star" name="star" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+
+            <div id="list_star" class="flex gap-3">
+
+            </div>
+
+            <div class="mb-4">
+                <label for="description" class="block text-sm font-medium text-gray-700">Mô tả</label>
+                <textarea id="description" name="description" rows="4" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+            </div>
+
+            <div class="flex justify-end gap-5">
+                <button type="button" id="cancelAdd" class="px-6 py-2 bg-gray-400 text-white rounded-lg hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
+                    Hủy
+                </button>
+                <button type="submit" class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                    Thêm
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<section class="px-[7%] mb-20">
+    <h3 class="text-2xl mb-5" style="border-bottom: 2px solid rgb(5, 59, 239); width: max-content;">Tour cùng loại</h3>
+    <div class="flex justify-center gap-4">
+        <div class="border border-gray-300 p-4 rounded-lg flex flex-col gap-3 hover:border-blue-500 cursor-pointer">
+            <div class="relative w-full h-[10rem]">
+                <a href="@Url.Action("TourDetails", "Tour", new { area = "User" })">
+                    <img class="absolute top-0 left-0 w-full h-[10rem] cover rounded-t-lg" src="https://bizweb.dktcdn.net/thumb/large/100/505/645/products/sp5-25fc3419-69bb-4ced-93df-003400f82736.jpg?v=1703230038853" alt="">
+                </a>
+                <span class="absolute top-3 right-3"><i class="fa-regular fa-heart text-white"></i></span>
+                <span class="absolute bottom-0 right-0 px-2 py-1 bg-black opacity-50 cursor-grabbing" title="Di chuyển bằng máy bay"><i class="fa-solid fa-plane text-white"></i></span>
+            </div>
+            <p class="flex gap-2 items-center"><i class="fa-solid fa-location-dot text-blue-600"></i> <span class="text-gray-500">Khởi hành từ: Hà Nội</span></p>
+            <a href="@Url.Action("TourDetails", "Tour", new { area = "User" })" class="text-lg font-medium">HCM - Seoul - Đảo Nami - Trượt Tuyết Elysian 5N4Đ</a>
+            <div class="flex gap-2">
+                <i class="fa-solid fa-star text-blue-600"></i>
+                <i class="fa-solid fa-star text-blue-600"></i>
+                <i class="fa-solid fa-star text-blue-600"></i>
+                <i class="fa-solid fa-star text-blue-600"></i>
+                <i class="fa-solid fa-star text-blue-600"></i>
+            </div>
+            <span class="text-blue-600 font-medium underline underline-offset-4">15.000.000 đ</span>
+            <p class="text-sm"><i class="fa-regular fa-clock text-gray-500"></i> <span class="text-gray-500">Thời gian: 5N4Đ</span></p>
+        </div>
+        <div class="border border-gray-300 p-4 rounded-lg flex flex-col gap-3 hover:border-blue-500 cursor-pointer">
+            <div class="relative w-full h-[10rem]">
+                <img class="absolute top-0 left-0 w-full h-[10rem] cover rounded-t-lg" src="https://bizweb.dktcdn.net/thumb/large/100/505/645/products/sp4.jpg?v=1703064541193" alt="">
+                <span class="absolute top-3 right-3"><i class="fa-regular fa-heart text-white"></i></span>
+                <span class="absolute bottom-0 right-0 px-2 py-1 bg-black opacity-50 cursor-grabbing" title="Di chuyển bằng máy bay"><i class="fa-solid fa-plane text-white"></i></span>
+            </div>
+            <p class="flex gap-2 items-center"><i class="fa-solid fa-location-dot text-blue-600"></i> <span class="text-gray-500">Khởi hành từ: Hà Nội</span></p>
+            <p class="text-lg font-medium">HCM - Seoul - Đảo Nami - Trượt Tuyết Elysian 5N4Đ</p>
+            <div class="flex gap-2">
+                <i class="fa-solid fa-star text-blue-600"></i>
+                <i class="fa-solid fa-star text-blue-600"></i>
+                <i class="fa-solid fa-star text-blue-600"></i>
+                <i class="fa-solid fa-star text-blue-600"></i>
+                <i class="fa-solid fa-star text-blue-600"></i>
+            </div>
+            <span class="text-blue-600 font-medium underline underline-offset-4">15.000.000 đ</span>
+            <p class="text-sm"><i class="fa-regular fa-clock text-gray-500"></i> <span class="text-gray-500">Thời gian: 5N4Đ</span></p>
+        </div>
+        <div class="border border-gray-300 p-4 rounded-lg flex flex-col gap-3 hover:border-blue-500 cursor-pointer">
+            <div class="relative w-full h-[10rem]">
+                <img class="absolute top-0 left-0 w-full h-[10rem] cover rounded-t-lg" src="https://bizweb.dktcdn.net/thumb/large/100/505/645/products/sp2.jpg?v=1703065085930" alt="">
+                <span class="absolute top-3 right-3"><i class="fa-regular fa-heart text-white"></i></span>
+                <span class="absolute bottom-0 right-0 px-2 py-1 bg-black opacity-50 cursor-grabbing" title="Di chuyển bằng máy bay"><i class="fa-solid fa-plane text-white"></i></span>
+            </div>
+            <p class="flex gap-2 items-center"><i class="fa-solid fa-location-dot text-blue-600"></i> <span class="text-gray-500">Khởi hành từ: Hà Nội</span></p>
+            <p class="text-lg font-medium">HCM - Seoul - Đảo Nami - Trượt Tuyết Elysian 5N4Đ</p>
+            <div class="flex gap-2">
+                <i class="fa-solid fa-star text-blue-600"></i>
+                <i class="fa-solid fa-star text-blue-600"></i>
+                <i class="fa-solid fa-star text-blue-600"></i>
+                <i class="fa-solid fa-star text-blue-600"></i>
+                <i class="fa-solid fa-star text-blue-600"></i>
+            </div>
+            <span class="text-blue-600 font-medium underline underline-offset-4">15.000.000 đ</span>
+            <p class="text-sm"><i class="fa-regular fa-clock text-gray-500"></i> <span class="text-gray-500">Thời gian: 5N4Đ</span></p>
+        </div>
+        <div class="border border-gray-300 p-4 rounded-lg flex flex-col gap-3 hover:border-blue-500 cursor-pointer">
+            <div class="relative w-full h-[10rem]">
+                <img class="absolute top-0 left-0 w-full h-[10rem] cover rounded-t-lg" src="https://bizweb.dktcdn.net/thumb/large/100/505/645/products/sp4.jpg?v=1703064541193" alt="">
+                <span class="absolute top-3 right-3"><i class="fa-regular fa-heart text-white"></i></span>
+                <span class="absolute bottom-0 right-0 px-2 py-1 bg-black opacity-50 cursor-grabbing" title="Di chuyển bằng máy bay"><i class="fa-solid fa-plane text-white"></i></span>
+            </div>
+            <p class="flex gap-2 items-center"><i class="fa-solid fa-location-dot text-blue-600"></i> <span class="text-gray-500">Khởi hành từ: Hà Nội</span></p>
+            <p class="text-lg font-medium">HCM - Seoul - Đảo Nami - Trượt Tuyết Elysian 5N4Đ</p>
+            <div class="flex gap-2">
+                <i class="fa-solid fa-star text-blue-600"></i>
+                <i class="fa-solid fa-star text-blue-600"></i>
+                <i class="fa-solid fa-star text-blue-600"></i>
+                <i class="fa-solid fa-star text-blue-600"></i>
+                <i class="fa-solid fa-star text-blue-600"></i>
+            </div>
+            <span class="text-blue-600 font-medium underline underline-offset-4">15.000.000 đ</span>
+            <p class="text-sm"><i class="fa-regular fa-clock text-gray-500"></i> <span class="text-gray-500">Thời gian: 5N4Đ</span></p>
+        </div>
+    </div>
+</section>
+
+<script>
+        const btnDesc = document.getElementById('btn_desc');
+        const btnSchedule = document.getElementById('btn_schedule');
+        const btnEvalute = document.getElementById('btn_evaluate');
+        const descTour = document.getElementById('desc_tour');
+        const scheduleTour = document.getElementById('schedule_tour');
+        const evaluateTour = document.getElementById('evaluate_tour');
+
+        btnDesc.onclick = function() {
+            descTour.style.display = 'flex';
+            scheduleTour.style.display = 'none';
+            evaluateTour.style.display = 'none';
+
+            btnDesc.classList.add('active_title');
+            btnEvalute.classList.remove('active_title');
+            btnSchedule.classList.remove('active_title');
+        }
+
+        btnEvalute.onclick = function() {
+            descTour.style.display = 'none';
+            scheduleTour.style.display = 'none';
+            evaluateTour.style.display = 'flex';
+
+            btnEvalute.classList.add('active_title');
+            btnSchedule.classList.remove('active_title');
+            btnDesc.classList.remove('active_title');
+        }
+
+        btnSchedule.onclick = function() {
+            descTour.style.display = 'none';
+            scheduleTour.style.display = 'flex';
+            evaluateTour.style.display = 'none';
+
+            btnSchedule.classList.add('active_title');
+            btnDesc.classList.remove('active_title');
+            btnEvalute.classList.remove('active_title');
+        }
+
+        // Xử lý click đánh giá
+
+        const btnDanhGia = document.getElementById('btnDanhGia');
+        const addDanhGia = document.getElementById('addDanhGia');
+        const list_star = document.getElementById('list_star'); // danh sách sao
+        const input_star = document.getElementById('star');
+        const closeAdd = document.getElementById('closeAdd');
+        const cancelAdd = document.getElementById('cancelAdd');
+        btnDanhGia.addEventListener('click', function(e) {
+            addDanhGia.classList.remove('hidden');
+        });
+
+        closeAdd.addEventListener('click', function(e) {
+            addDanhGia.classList.add('hidden');
+        });
+
+        cancelAdd.addEventListener('click', function(e) {
+            addDanhGia.classList.add('hidden');
+        });
+
+        input_star.onchange = function() {
+            let html = '';
+            for(let i =1; i<= input_star.value; i++) {
+                html += `
+                    <i class="fa-solid fa-star text-yellow-500"></i>
+                `
+            }
+            for(let i=1; i<=5-input_star.value; i++) {
+                html += `
+                    <i class="fa-regular fa-star text-yellow-500"></i>
+                `
+            }
+
+            list_star.innerHTML = html;
+        }
+
+        // end handle
+
+        // handle click vào hình ảnh
+
+        const listImg = document.querySelectorAll('.img');
+        const imgActive = document.getElementById('img_active');
+        listImg.forEach(item => {
+            item.addEventListener('click', function(e) {
+                imgActive.setAttribute('src', item.getAttribute('src'));
+            });
+        })
+
+        // end handle
+
+</script>
+
