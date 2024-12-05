@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_TravelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="BookingId" />
+    </Key>
+    <Property Name="BookingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="BookingDate" Type="DateTime" Precision="3" />
+    <Property Name="Statuss" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="Int32" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Booking__UserId__3E52440B" FromRole="Booking" ToRole="User" />
+    <NavigationProperty Name="BookingDetails" Relationship="Self.FK__BookingDe__Booki__52593CB8" FromRole="Booking" ToRole="BookingDetails" />
+    <NavigationProperty Name="Payments" Relationship="Self.FK__Payment__Booking__4316F928" FromRole="Booking" ToRole="Payment" />
+  </EntityType>
+  <EntityType Name="BookingDetail">
+    <Key>
+      <PropertyRef Name="BookingDetailId" />
+    </Key>
+    <Property Name="BookingDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookingId" Type="Int32" />
+    <Property Name="CountChild" Type="Int32" />
+    <Property Name="CountAdult" Type="Int32" />
+    <Property Name="PriceChild" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PriceAdult" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TourId" Type="Int32" />
+    <NavigationProperty Name="Booking" Relationship="Self.FK__BookingDe__Booki__52593CB8" FromRole="BookingDetails" ToRole="Booking" />
+    <NavigationProperty Name="Tour" Relationship="Self.FK__BookingDe__TourI__534D60F1" FromRole="BookingDetails" ToRole="Tour" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Descriptions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Tours" Relationship="Self.FK__Tour__CategoryId__3B75D760" FromRole="Category" ToRole="Tour" />
+  </EntityType>
+  <EntityType Name="Destination">
+    <Key>
+      <PropertyRef Name="DestinationId" />
+    </Key>
+    <Property Name="DestinationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DestinationName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Descriptions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FamousCityId" Type="Int32" />
+    <Property Name="ImageURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FamousCity" Relationship="Self.FK__Destinati__Famou__5AEE82B9" FromRole="Destination" ToRole="FamousCity" />
+    <NavigationProperty Name="Specialties" Relationship="Self.FK__Specialty__Desti__619B8048" FromRole="Destination" ToRole="Specialty" />
+    <NavigationProperty Name="Tour_Destination" Relationship="Self.FK__Tour_Dest__Desti__5EBF139D" FromRole="Destination" ToRole="Tour_Destination" />
+  </EntityType>
+  <EntityType Name="Discount">
+    <Key>
+      <PropertyRef Name="DiscountId" />
+    </Key>
+    <Property Name="DiscountId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Descriptions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DiscountType" Type="Int32" />
+    <Property Name="DiscountValue" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="Statuss" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Payments" Relationship="Self.FK__Payment__Discoun__440B1D61" FromRole="Discount" ToRole="Payment" />
+    <NavigationProperty Name="Tours" Relationship="Self.DiscountTour" FromRole="Discount" ToRole="Tour" />
+    <NavigationProperty Name="Users" Relationship="Self.UserDiscount" FromRole="Discount" ToRole="User" />
+  </EntityType>
+  <EntityType Name="FamousCity">
+    <Key>
+      <PropertyRef Name="FamousCityId" />
+    </Key>
+    <Property Name="FamousCityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Descriptions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Destinations" Relationship="Self.FK__Destinati__Famou__5AEE82B9" FromRole="FamousCity" ToRole="Destination" />
+  </EntityType>
+  <EntityType Name="Favourite">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="TourId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="TourId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Tour" Relationship="Self.FK__Favourite__TourI__4F7CD00D" FromRole="Favourite" ToRole="Tour" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Favourite__UserI__4E88ABD4" FromRole="Favourite" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="PaymentId" />
+    </Key>
+    <Property Name="PaymentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookingId" Type="Int32" />
+    <Property Name="PaymentDate" Type="DateTime" Precision="3" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Method" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Statuss" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sdt" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Addresss" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DiscountId" Type="Int32" />
+    <NavigationProperty Name="Booking" Relationship="Self.FK__Payment__Booking__4316F928" FromRole="Payment" ToRole="Booking" />
+    <NavigationProperty Name="Discount" Relationship="Self.FK__Payment__Discoun__440B1D61" FromRole="Payment" ToRole="Discount" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="PostId" />
+    </Key>
+    <Property Name="PostId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ImageTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TourId" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="IsApproved" Type="Boolean" />
+    <NavigationProperty Name="Tour" Relationship="Self.FK__Post__TourId__6477ECF3" FromRole="Post" ToRole="Tour" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Post__UserId__656C112C" FromRole="Post" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="ReviewId" />
+    </Key>
+    <Property Name="ReviewId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="TourId" Type="Int32" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="Rating" Type="Int32" />
+    <Property Name="IsApproved" Type="Boolean" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Tour" Relationship="Self.FK__Review__TourId__4BAC3F29" FromRole="Review" ToRole="Tour" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Review__UserId__4AB81AF0" FromRole="Review" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="ScheduleId" />
+    </Key>
+    <Property Name="ScheduleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Descriptions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TourId" Type="Int32" />
+    <NavigationProperty Name="Tour" Relationship="Self.FK__Schedule__TourId__68487DD7" FromRole="Schedule" ToRole="Tour" />
+  </EntityType>
+  <EntityType Name="Specialty">
+    <Key>
+      <PropertyRef Name="SpecialtyId" />
+    </Key>
+    <Property Name="SpecialtyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImageURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DestinationId" Type="Int32" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Destination" Relationship="Self.FK__Specialty__Desti__619B8048" FromRole="Specialty" ToRole="Destination" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tour">
+    <Key>
+      <PropertyRef Name="TourId" />
+    </Key>
+    <Property Name="TourId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStart" Type="DateTime" Precision="3" />
+    <Property Name="TimeEnd" Type="DateTime" Precision="3" />
+    <Property Name="DayNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MaxCountTicket" Type="Int32" />
+    <Property Name="PriceChild" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PriceAdult" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Descriptions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="DiChuyen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BookingDetails" Relationship="Self.FK__BookingDe__TourI__534D60F1" FromRole="Tour" ToRole="BookingDetails" />
+    <NavigationProperty Name="Category" Relationship="Self.FK__Tour__CategoryId__3B75D760" FromRole="Tour" ToRole="Category" />
+    <NavigationProperty Name="Favourites" Relationship="Self.FK__Favourite__TourI__4F7CD00D" FromRole="Tour" ToRole="Favourite" />
+    <NavigationProperty Name="Posts" Relationship="Self.FK__Post__TourId__6477ECF3" FromRole="Tour" ToRole="Post" />
+    <NavigationProperty Name="Reviews" Relationship="Self.FK__Review__TourId__4BAC3F29" FromRole="Tour" ToRole="Review" />
+    <NavigationProperty Name="Schedules" Relationship="Self.FK__Schedule__TourId__68487DD7" FromRole="Tour" ToRole="Schedule" />
+    <NavigationProperty Name="Tour_Destination" Relationship="Self.FK__Tour_Dest__TourI__5DCAEF64" FromRole="Tour" ToRole="Tour_Destination" />
+    <NavigationProperty Name="TourImages" Relationship="Self.FK__TourImage__TourI__5629CD9C" FromRole="Tour" ToRole="TourImage" />
+    <NavigationProperty Name="Discounts" Relationship="Self.DiscountTour" FromRole="Tour" ToRole="Discount" />
+  </EntityType>
+  <EntityType Name="Tour_Destination">
+    <Key>
+      <PropertyRef Name="TourId" />
+      <PropertyRef Name="DestinationId" />
+    </Key>
+    <Property Name="TourId" Type="Int32" Nullable="false" />
+    <Property Name="DestinationId" Type="Int32" Nullable="false" />
+    <Property Name="Order" Type="Int32" />
+    <NavigationProperty Name="Destination" Relationship="Self.FK__Tour_Dest__Desti__5EBF139D" FromRole="Tour_Destination" ToRole="Destination" />
+    <NavigationProperty Name="Tour" Relationship="Self.FK__Tour_Dest__TourI__5DCAEF64" FromRole="Tour_Destination" ToRole="Tour" />
+  </EntityType>
+  <EntityType Name="TourImage">
+    <Key>
+      <PropertyRef Name="TourImageId" />
+    </Key>
+    <Property Name="TourImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TourId" Type="Int32" />
+    <Property Name="ImageURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Tour" Relationship="Self.FK__TourImage__TourI__5629CD9C" FromRole="TourImage" ToRole="Tour" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Sdt" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Addresss" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Passwords" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Roles" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ImageUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Bookings" Relationship="Self.FK__Booking__UserId__3E52440B" FromRole="User" ToRole="Booking" />
+    <NavigationProperty Name="Favourites" Relationship="Self.FK__Favourite__UserI__4E88ABD4" FromRole="User" ToRole="Favourite" />
+    <NavigationProperty Name="Posts" Relationship="Self.FK__Post__UserId__656C112C" FromRole="User" ToRole="Post" />
+    <NavigationProperty Name="Reviews" Relationship="Self.FK__Review__UserId__4AB81AF0" FromRole="User" ToRole="Review" />
+    <NavigationProperty Name="Discounts" Relationship="Self.UserDiscount" FromRole="User" ToRole="Discount" />
+  </EntityType>
+  <Association Name="FK__Booking__UserId__3E52440B">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BookingDe__Booki__52593CB8">
+    <End Role="Booking" Type="Self.Booking" Multiplicity="0..1" />
+    <End Role="BookingDetails" Type="Self.BookingDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Booking">
+        <PropertyRef Name="BookingId" />
+      </Principal>
+      <Dependent Role="BookingDetails">
+        <PropertyRef Name="BookingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Payment__Booking__4316F928">
+    <End Role="Booking" Type="Self.Booking" Multiplicity="0..1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Booking">
+        <PropertyRef Name="BookingId" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="BookingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BookingDe__TourI__534D60F1">
+    <End Role="Tour" Type="Self.Tour" Multiplicity="0..1" />
+    <End Role="BookingDetails" Type="Self.BookingDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tour">
+        <PropertyRef Name="TourId" />
+      </Principal>
+      <Dependent Role="BookingDetails">
+        <PropertyRef Name="TourId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tour__CategoryId__3B75D760">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Tour" Type="Self.Tour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Tour">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Destinati__Famou__5AEE82B9">
+    <End Role="FamousCity" Type="Self.FamousCity" Multiplicity="0..1" />
+    <End Role="Destination" Type="Self.Destination" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FamousCity">
+        <PropertyRef Name="FamousCityId" />
+      </Principal>
+      <Dependent Role="Destination">
+        <PropertyRef Name="FamousCityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Specialty__Desti__619B8048">
+    <End Role="Destination" Type="Self.Destination" Multiplicity="0..1" />
+    <End Role="Specialty" Type="Self.Specialty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Destination">
+        <PropertyRef Name="DestinationId" />
+      </Principal>
+      <Dependent Role="Specialty">
+        <PropertyRef Name="DestinationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tour_Dest__Desti__5EBF139D">
+    <End Role="Destination" Type="Self.Destination" Multiplicity="1" />
+    <End Role="Tour_Destination" Type="Self.Tour_Destination" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Destination">
+        <PropertyRef Name="DestinationId" />
+      </Principal>
+      <Dependent Role="Tour_Destination">
+        <PropertyRef Name="DestinationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Payment__Discoun__440B1D61">
+    <End Role="Discount" Type="Self.Discount" Multiplicity="0..1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Discount">
+        <PropertyRef Name="DiscountId" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="DiscountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Favourite__TourI__4F7CD00D">
+    <End Role="Tour" Type="Self.Tour" Multiplicity="1" />
+    <End Role="Favourite" Type="Self.Favourite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tour">
+        <PropertyRef Name="TourId" />
+      </Principal>
+      <Dependent Role="Favourite">
+        <PropertyRef Name="TourId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Favourite__UserI__4E88ABD4">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Favourite" Type="Self.Favourite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Favourite">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Post__TourId__6477ECF3">
+    <End Role="Tour" Type="Self.Tour" Multiplicity="0..1" />
+    <End Role="Post" Type="Self.Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tour">
+        <PropertyRef Name="TourId" />
+      </Principal>
+      <Dependent Role="Post">
+        <PropertyRef Name="TourId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Post__UserId__656C112C">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Post" Type="Self.Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Post">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Review__TourId__4BAC3F29">
+    <End Role="Tour" Type="Self.Tour" Multiplicity="0..1" />
+    <End Role="Review" Type="Self.Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tour">
+        <PropertyRef Name="TourId" />
+      </Principal>
+      <Dependent Role="Review">
+        <PropertyRef Name="TourId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Review__UserId__4AB81AF0">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Review" Type="Self.Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Review">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Schedule__TourId__68487DD7">
+    <End Role="Tour" Type="Self.Tour" Multiplicity="0..1" />
+    <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tour">
+        <PropertyRef Name="TourId" />
+      </Principal>
+      <Dependent Role="Schedule">
+        <PropertyRef Name="TourId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tour_Dest__TourI__5DCAEF64">
+    <End Role="Tour" Type="Self.Tour" Multiplicity="1" />
+    <End Role="Tour_Destination" Type="Self.Tour_Destination" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tour">
+        <PropertyRef Name="TourId" />
+      </Principal>
+      <Dependent Role="Tour_Destination">
+        <PropertyRef Name="TourId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TourImage__TourI__5629CD9C">
+    <End Role="Tour" Type="Self.Tour" Multiplicity="0..1" />
+    <End Role="TourImage" Type="Self.TourImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tour">
+        <PropertyRef Name="TourId" />
+      </Principal>
+      <Dependent Role="TourImage">
+        <PropertyRef Name="TourId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DiscountTour">
+    <End Role="Discount" Type="Self.Discount" Multiplicity="*" />
+    <End Role="Tour" Type="Self.Tour" Multiplicity="*" />
+  </Association>
+  <Association Name="UserDiscount">
+    <End Role="Discount" Type="Self.Discount" Multiplicity="*" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="DB_TravelEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bookings" EntityType="Self.Booking" />
+    <EntitySet Name="BookingDetails" EntityType="Self.BookingDetail" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Destinations" EntityType="Self.Destination" />
+    <EntitySet Name="Discounts" EntityType="Self.Discount" />
+    <EntitySet Name="FamousCities" EntityType="Self.FamousCity" />
+    <EntitySet Name="Favourites" EntityType="Self.Favourite" />
+    <EntitySet Name="Payments" EntityType="Self.Payment" />
+    <EntitySet Name="Posts" EntityType="Self.Post" />
+    <EntitySet Name="Reviews" EntityType="Self.Review" />
+    <EntitySet Name="Schedules" EntityType="Self.Schedule" />
+    <EntitySet Name="Specialties" EntityType="Self.Specialty" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Tours" EntityType="Self.Tour" />
+    <EntitySet Name="Tour_Destination" EntityType="Self.Tour_Destination" />
+    <EntitySet Name="TourImages" EntityType="Self.TourImage" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK__Booking__UserId__3E52440B" Association="Self.FK__Booking__UserId__3E52440B">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Booking" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BookingDe__Booki__52593CB8" Association="Self.FK__BookingDe__Booki__52593CB8">
+      <End Role="Booking" EntitySet="Bookings" />
+      <End Role="BookingDetails" EntitySet="BookingDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Payment__Booking__4316F928" Association="Self.FK__Payment__Booking__4316F928">
+      <End Role="Booking" EntitySet="Bookings" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BookingDe__TourI__534D60F1" Association="Self.FK__BookingDe__TourI__534D60F1">
+      <End Role="Tour" EntitySet="Tours" />
+      <End Role="BookingDetails" EntitySet="BookingDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tour__CategoryId__3B75D760" Association="Self.FK__Tour__CategoryId__3B75D760">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Tour" EntitySet="Tours" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Destinati__Famou__5AEE82B9" Association="Self.FK__Destinati__Famou__5AEE82B9">
+      <End Role="FamousCity" EntitySet="FamousCities" />
+      <End Role="Destination" EntitySet="Destinations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Specialty__Desti__619B8048" Association="Self.FK__Specialty__Desti__619B8048">
+      <End Role="Destination" EntitySet="Destinations" />
+      <End Role="Specialty" EntitySet="Specialties" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tour_Dest__Desti__5EBF139D" Association="Self.FK__Tour_Dest__Desti__5EBF139D">
+      <End Role="Destination" EntitySet="Destinations" />
+      <End Role="Tour_Destination" EntitySet="Tour_Destination" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Payment__Discoun__440B1D61" Association="Self.FK__Payment__Discoun__440B1D61">
+      <End Role="Discount" EntitySet="Discounts" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Favourite__TourI__4F7CD00D" Association="Self.FK__Favourite__TourI__4F7CD00D">
+      <End Role="Tour" EntitySet="Tours" />
+      <End Role="Favourite" EntitySet="Favourites" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Favourite__UserI__4E88ABD4" Association="Self.FK__Favourite__UserI__4E88ABD4">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Favourite" EntitySet="Favourites" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Post__TourId__6477ECF3" Association="Self.FK__Post__TourId__6477ECF3">
+      <End Role="Tour" EntitySet="Tours" />
+      <End Role="Post" EntitySet="Posts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Post__UserId__656C112C" Association="Self.FK__Post__UserId__656C112C">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Post" EntitySet="Posts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Review__TourId__4BAC3F29" Association="Self.FK__Review__TourId__4BAC3F29">
+      <End Role="Tour" EntitySet="Tours" />
+      <End Role="Review" EntitySet="Reviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Review__UserId__4AB81AF0" Association="Self.FK__Review__UserId__4AB81AF0">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Review" EntitySet="Reviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Schedule__TourId__68487DD7" Association="Self.FK__Schedule__TourId__68487DD7">
+      <End Role="Tour" EntitySet="Tours" />
+      <End Role="Schedule" EntitySet="Schedules" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tour_Dest__TourI__5DCAEF64" Association="Self.FK__Tour_Dest__TourI__5DCAEF64">
+      <End Role="Tour" EntitySet="Tours" />
+      <End Role="Tour_Destination" EntitySet="Tour_Destination" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TourImage__TourI__5629CD9C" Association="Self.FK__TourImage__TourI__5629CD9C">
+      <End Role="Tour" EntitySet="Tours" />
+      <End Role="TourImage" EntitySet="TourImages" />
+    </AssociationSet>
+    <AssociationSet Name="DiscountTour" Association="Self.DiscountTour">
+      <End Role="Discount" EntitySet="Discounts" />
+      <End Role="Tour" EntitySet="Tours" />
+    </AssociationSet>
+    <AssociationSet Name="UserDiscount" Association="Self.UserDiscount">
+      <End Role="Discount" EntitySet="Discounts" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e8f8d86859ba41e3888b6c8bb37d2a98" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_TravelModel.Booking" Width="1.5" PointX="5.25" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_TravelModel.BookingDetail" Width="1.5" PointX="10.5" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_TravelModel.Category" Width="1.5" PointX="0.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_TravelModel.Destination" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_TravelModel.Discount" Width="1.5" PointX="0.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_TravelModel.FamousCity" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_TravelModel.Favourite" Width="1.5" PointX="5.25" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_TravelModel.Payment" Width="1.5" PointX="7.5" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_TravelModel.Post" Width="1.5" PointX="5.25" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_TravelModel.Review" Width="1.5" PointX="8.25" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_TravelModel.Schedule" Width="1.5" PointX="5.25" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_TravelModel.Specialty" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_TravelModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_TravelModel.Tour" Width="1.5" PointX="3" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_TravelModel.Tour_Destination" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_TravelModel.TourImage" Width="1.5" PointX="5.25" PointY="34" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_TravelModel.User" Width="1.5" PointX="3" PointY="24.875" IsExpanded="true" />
+        <AssociationConnector Association="DB_TravelModel.FK__Booking__UserId__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_TravelModel.FK__BookingDe__Booki__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_TravelModel.FK__Payment__Booking__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_TravelModel.FK__BookingDe__TourI__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_TravelModel.FK__Tour__CategoryId__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_TravelModel.FK__Destinati__Famou__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_TravelModel.FK__Specialty__Desti__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_TravelModel.FK__Tour_Dest__Desti__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_TravelModel.FK__Payment__Discoun__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_TravelModel.FK__Favourite__TourI__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_TravelModel.FK__Favourite__UserI__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_TravelModel.FK__Post__TourId__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_TravelModel.FK__Post__UserId__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_TravelModel.FK__Review__TourId__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_TravelModel.FK__Review__UserId__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_TravelModel.FK__Schedule__TourId__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_TravelModel.FK__Tour_Dest__TourI__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_TravelModel.FK__TourImage__TourI__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_TravelModel.DiscountTour" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_TravelModel.UserDiscount" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

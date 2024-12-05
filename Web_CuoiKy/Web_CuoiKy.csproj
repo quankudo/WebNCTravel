@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -117,6 +125,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AdminAuthorize.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -137,10 +146,77 @@
     <Compile Include="Areas\User\Controllers\PostController.cs" />
     <Compile Include="Areas\User\Controllers\SpecialtyController.cs" />
     <Compile Include="Areas\User\Controllers\TourController.cs" />
+    <Compile Include="Areas\User\Dto\Request\LoginRequest.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Booking.cs">
+      <DependentUpon>Model_Travel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BookingDetail.cs">
+      <DependentUpon>Model_Travel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>Model_Travel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Destination.cs">
+      <DependentUpon>Model_Travel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Discount.cs">
+      <DependentUpon>Model_Travel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FamousCity.cs">
+      <DependentUpon>Model_Travel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Favourite.cs">
+      <DependentUpon>Model_Travel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model_Travel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_Travel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model_Travel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_Travel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model_Travel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_Travel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Payment.cs">
+      <DependentUpon>Model_Travel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Post.cs">
+      <DependentUpon>Model_Travel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Review.cs">
+      <DependentUpon>Model_Travel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Schedule.cs">
+      <DependentUpon>Model_Travel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Specialty.cs">
+      <DependentUpon>Model_Travel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>Model_Travel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tour.cs">
+      <DependentUpon>Model_Travel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TourImage.cs">
+      <DependentUpon>Model_Travel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tour_Destination.cs">
+      <DependentUpon>Model_Travel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>Model_Travel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -169,6 +245,16 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\Model_Travel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_Travel.edmx</DependentUpon>
+      <LastGenOutput>Model_Travel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model_Travel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_Travel.edmx</DependentUpon>
+      <LastGenOutput>Model_Travel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -207,6 +293,14 @@
     <Content Include="Areas\Admin\Views\Review\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Booking\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Payment\Index.cshtml" />
+    <EntityDeploy Include="Models\Model_Travel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model_Travel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model_Travel.edmx.diagram">
+      <DependentUpon>Model_Travel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\User\Views\Home\NoRole.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -237,7 +331,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\User\Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -265,6 +358,9 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

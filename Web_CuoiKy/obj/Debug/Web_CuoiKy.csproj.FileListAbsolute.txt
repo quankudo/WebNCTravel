@@ -77,3 +77,7 @@ E:\Web ASP.NET API\Web_CuoiKy\Web_CuoiKy\obj\Debug\Web_CuoiKy.csproj.CoreCompile
 E:\Web ASP.NET API\Web_CuoiKy\Web_CuoiKy\obj\Debug\Web_CuoiKy.csproj.CopyComplete
 E:\Web ASP.NET API\Web_CuoiKy\Web_CuoiKy\obj\Debug\Web_CuoiKy.dll
 E:\Web ASP.NET API\Web_CuoiKy\Web_CuoiKy\obj\Debug\Web_CuoiKy.pdb
+E:\Web ASP.NET API\Web_CuoiKy\Web_CuoiKy\bin\EntityFramework.dll
+E:\Web ASP.NET API\Web_CuoiKy\Web_CuoiKy\bin\EntityFramework.SqlServer.dll
+E:\Web ASP.NET API\Web_CuoiKy\Web_CuoiKy\bin\EntityFramework.xml
+E:\Web ASP.NET API\Web_CuoiKy\Web_CuoiKy\bin\EntityFramework.SqlServer.xml
